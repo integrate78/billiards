@@ -98,5 +98,37 @@
 These symmetries are of interest because, among other reasons, a symmetric transformation of the polygon, applied to a valid trajectory on that polygon, gives us another valid trajectory.}
 
 
+\section{Periodicity of trajectories}
+
+\paragraph{Identifying sides of a polygon to create a surface in 3D gives us (as we have discussed) a way to represent a trajectory on the polygon in terms of a continuous line, with a single well defined slope in the flat plane. There is another (and essentially similar) way of representing this trajectory, as follows:}
+
+\paragraph{We assume the projectile on the table starts off in a particular direction (say, angle $\theta$ and slope $m = tan\theta$). When it hits a particular side, we simply create a mirror reflection of the polygon about that side (“unfold” the table in the direction of that side), and let the projectile continue on its path in the same direction. Every time it hits a side, we unfold the polygon along that side (Fig 1.9).}
+
+%Fig 1.9
+
+\paragraph{The result is that we get a tiled representation of the flat plane (a graph, of sorts) on which the trajectory is a straight line of slope $m$. We call this the unfolded trajectory.}
+
+\paragraph{We introduce this method because it enables us to easily determine which trajectories in a polygonal table are periodic, and which are not.}
+
+%Fig 1.10
+
+\paragraph{If a trajectory of slope $m$ would be periodic on a particular polygon table, then it means that on the unfolded trajectory, it will pass through the same point on a different polygon as it started from in the first polygon (i.e, it joins corresponding points on two separate polygons on the tiled representation) (Fig 1.10). Conversely, if the trajectory passes through a point on the $n$th polygon that corresponds to the starting position of the first polygon, then the trajectory is periodic. Thus, we know that passing through the same position as the starting position on the $n$th polygon is a sufficient and necessary condition for periodicity. Moreover, the period of the trajectory is $n$.}
+
+\paragraph{To completely describe such trajectories, we will first create a special periodic trajectory, and use it to create more general ones.}
+
+\paragraph{Consider a polygonal billiard table, and the unfolded tiled representation of the table. Consider a trajectory that starts at the center of the first polygon, and passes through the center of the $n$th polygon that it crosses. Clearly, it is a periodic trajectory of period $n$. Let its slope be $m$.}
+
+Fig 1.11
+
+\paragraph{We can create a reconstruction of this trajectory by first creating an ordered sequence of all the polygons that the trajectory passes through, and then joining the centers of the adjacent polygons in the sequence (An illustration of this is shown in (Fig 1.11)). This is a vector decomposition of the trajectory, where each of the constituent vectors are of equal length, and their directions correspond to the normal to each of the sides of the polygon in question. This set of vectors for each polygon can thus be used to construct a center to center trajectory. Call this set $E$.}
+
+\paragraph{We can generalize this by noting that a center to center trajectory can be translated in such a way that it connects any two corresponding points of the $1$st and $n$th polygon, with the same vector decomposition as before (since all vectors stay constant under a translation), as well as the same slope (Fig 1.12). Since we have already seen that the general periodic trajectory always connects corresponding points of two polygons in the tiled representation, we can see that the vectors used to construct a center to center trajectory of slope $m$ can be used to construct any periodic trajectory of slope $m$ (i.e, a trajectory of slope $m$ with any starting point, or simply, the general trajectory of slope $m$).}
+
+%Fig 1.12
+
+\paragraph{There is hence a very powerful relationship between the nature of the polygon, and the periodicity conditions of a trajectory on it. This can be encapsulated in the following theorem:}
+
+\paragraph{$THEOREM$- For a given polygon $P$, let $E_P = {e_1,...e_k}$ be the set of the normal vectors to the sides of the polygon (all of the same length). Then any periodic trajectory on the polygon can be constructed by an integer combination of the vectors in $E_P$. Moreover, the slope for a periodic trajectory is necessarily given by}
+
 \end{document}
 
