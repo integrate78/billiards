@@ -1,5 +1,6 @@
 \documentclass{article}
 \title{Billiards}
+\usepackage{amsmath}
 \begin{document}
 \maketitle
 
@@ -65,6 +66,37 @@
 \paragraph{We use these numbers to identify a surface uniquely. If two polygons can both be identified into a common surface with a particular Euler Characteristic $\chi$, then the dynamics for both polygons are the same (since in the surface, the dynamics end up being the same). Since the Euler characteristic can be calculated from just knowledge of the polygon, we can figure out which surface a polygon can form without any complex visualizations.}
 
 \paragraph{In order to apply the Euler characteristic to our use, we must know vertices, edges and faces of the polygon. For a given polygon with identified edges, we can find edges and faces of the polygon without much effort.}
+
+\paragraph{To count the vertices, we implement the following sequence of steps:}
+
+
+\begin{enumerate}
+
+\item Pick a side 1, it has an identified side 1’. Pick a vertex on 1. It has an identified vertex on 1’.
+
+\item The chosen vertex on side 1 is connected to another side (call it 2. The side 2’, identified to 2 is connected to 1’ in the same sense (clockwise or anti-clockwise) as 2 is to 1.
+
+\item Since 2 has the chosen vertex, the corresponding vertex on 2’ can be identified to the two vertices already identified in step 1.
+
+\item Continue this process till we reach the original polygon vertex from step 1. At this point, choose any unidentified vertices, and repeat the process.
+
+\end{enumerate}
+
+
+\paragraph{We iterate this process repeatedly till we have covered every polygon vertex (Note that the number of iterations = the number of surface vertices)}
+
+\paragraph{Figure (1.7) illustrates vertex counting scenario for a hexagon}
+
+%Fig 1.7
+
+\paragraph{A number of theorems can be proven regarding the number of vertices in a polygon identified surface. We illustrate a few of them in the appendix}
+
+
+\section{Symmetries and transformations}
+
+\paragraph{Symmetries of a polygon are linear bijective transformations which map between points in the same space such that vertices of a polygon are mapped back to vertices (a vertex may be mapped to a different one). 
+These symmetries are of interest because, among other reasons, a symmetric transformation of the polygon, applied to a valid trajectory on that polygon, gives us another valid trajectory.}
+
 
 \end{document}
 
