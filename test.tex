@@ -97,6 +97,74 @@
 \paragraph{Symmetries of a polygon are linear bijective transformations which map between points in the same space such that vertices of a polygon are mapped back to vertices (a vertex may be mapped to a different one). 
 These symmetries are of interest because, among other reasons, a symmetric transformation of the polygon, applied to a valid trajectory on that polygon, gives us another valid trajectory.}
 
+\begin{enumerate}
+
+\item \textbf{Reflection along x} 
+$ (\begin{bmatrix}
+1&0\\0&-1
+\end{bmatrix})$
+\textbf{or y}
+$ (\begin{bmatrix}
+-1&0\\0&1
+\end{bmatrix})$
+
+\item \textbf{Rotation by $\pi/2$ radians}
+$ (\begin{bmatrix}
+0&-1\\1&0
+\end{bmatrix})$
+
+\item \textbf{Shearing}
+
+%Fig 1.6
+%Fig 1.7
+
+\end{enumerate}
+
+\paragraph{Among these, shearing requires a bit more careful study.}
+
+
+
+\section{Shears and one directional scaling}
+
+
+\paragraph{When a surface is twisted in a direction such that points on a line parallel to this direction remain stationary, we call it shearing of the surface. (Fig 1.8)}
+
+%Fig 1.8
+
+\paragraph{\textit{DEFINITION}: A linear transformation of the form
+$ (\begin{bmatrix}
+1&m\\0&1
+\end{bmatrix})$
+or
+$ (\begin{bmatrix}
+1&0\\m&1
+\end{bmatrix})$
+where m is any integer, is a one directional shear map.
+}
+
+\paragraph{There are two types of shear maps:}
+
+\begin{itemize}
+\item \textbf{Horizontal shear mapping takes a point on the surface (x,y) and transforms it to (x+my,y), where m is a fixed constant known as shear factor. Such a shear is also known as shear parallel to x-axis. It is represented by 
+$ (\begin{bmatrix}
+1&m\\0&1
+\end{bmatrix})$ }
+
+\item \textbf{Vertical shear mapping takes a point on the surface (x,y) and transforms it to (x,mx+y), where m is a fixed constant known as shear factor. Such a shear is also known as shear parallel to y-axis. It is represented by
+$ (\begin{bmatrix}
+1&0\\m&1
+\end{bmatrix})$ }
+\end{itemize}
+
+\paragraph{We must not confuse shearing with rotation. Shearing distorts the 2D shape of the surface. If we rotate a square, we will always get a square in 2D.}
+
+\paragraph{Note that shearing preserves properties like parallelism and area. It also preserves the side identifications of the polygon (since parallel sides remain parallel to each other after shearing). Thus, shearing a polygon does not change the 3D surface it is identified into.}
+
+\paragraph{We will usually cut the sheared polygon and rearrange the individual pieces (while respecting side identifications) to retrieve the original polygon shape for ease of analysis.}
+
+\paragraph{Shearing can be observed in both 2D and 3D spaces. For studying billiards, we will restrict ourselves to 2D shearing maps.}
+
+
 
 \section{Periodicity of trajectories}
 
@@ -129,6 +197,11 @@ Fig 1.11
 \paragraph{There is hence a very powerful relationship between the nature of the polygon, and the periodicity conditions of a trajectory on it. This can be encapsulated in the following theorem:}
 
 \paragraph{$THEOREM$- For a given polygon $P$, let $E_P = {e_1,...e_k}$ be the set of the normal vectors to the sides of the polygon (all of the same length). Then any periodic trajectory on the polygon can be constructed by an integer combination of the vectors in $E_P$. Moreover, the slope for a periodic trajectory is necessarily given by}
+
+
+
+
+
 
 \end{document}
 
