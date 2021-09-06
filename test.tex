@@ -1,11 +1,13 @@
-\documentclass{article}
+\documentclass{report}
 \title{Billiards}
 \usepackage{amsmath}
 \begin{document}
 \maketitle
+\newpage
+\tableofcontents
 
-%add a chapter
-\section{The rules of billiard dynamics}
+\chapter{Introduction to Billiards Dynamics}
+\section{The rule of billiard dynamics}
 \paragraph{Consider a simple polygonal billiard table, and let a projectile be free to move inside it, similar to a cue ball (Fig 1.1). We assume that all collisions with the sides of the square are completely elastic (i.e., angle of incidence = angle of reflection, and no loss of speed occurs after the collision). We further assume that any collision with a vertex will prevent any further motion (one can imagine that the projectile gets “stuck” at the vertex).}
 
 %Fig 1.1
@@ -198,6 +200,43 @@ Fig 1.11
 
 \paragraph{$THEOREM$- For a given polygon $P$, let $E_P = {e_1,...e_k}$ be the set of the normal vectors to the sides of the polygon (all of the same length). Then any periodic trajectory on the polygon can be constructed by an integer combination of the vectors in $E_P$. Moreover, the slope for a periodic trajectory is necessarily given by}
 
+
+\chapter{Billiards Dynamics in Square Torus}
+
+\paragraph{In this chapter, we take the example of a simple polygon- the square- and describe billiard dynamics in it. A square has an even number of sides, with opposite sides being parallel. Thus, we can use all the tools and methods that we introduced in chapter 1, and we will see they give us a very good description of the general trajectory on a square table, owing to the specific properties of the square.}
+
+\section{The Square torus and identifying sides}
+
+\paragarph{If we identify the opposite sides of a square, we obtain a 3D object called a torus. A square torus in a 2D plane looks exactly like a flat square but has only two distinct sides, A and B, each of which is represented by a set of opposite sides on the flat square (Fig 2.1) A square torus has a genus of 1, and Euler Characteristic value of 0 (calculated as per the formulae given in Ch 1).}
+
+%Fig 2.1
+
+\paragraph{Note: We make a distinction between a square torus and  torus. A square torus is simply a 2D representation of a torus in terms of a square. We may make a parallelogram torus in this way too, for example (Fig 2.2)
+}
+
+%Fig 2.2
+
+\paragraph{Notice that a square torus has one surface vertex (Fig 2.3). Also, the angle around the vertex is $4\frac{\pi}{2} = 2\pi$, making the vertex indistinguishable from any other point on the surface (i.e, a flat surface).}
+
+%Fig 2.3
+
+\section{Cutting seqiences on a Square Torus}
+
+\paragraph{Trajectories on a square torus can be described, like any other identified polygon, in terms of cutting sequences. For a square torus, since we have only two distinct sides A and B, the cutting sequences are bi-infinite permutations of A’s and B’s (Fig 2.4). For periodic trajectories, note that the cutting sequence will be a finite permutation repeated infinitely.}
+
+%Fig 2.4
+
+\paragraph{In Chapter 1, we stated an equation to find the slope of a trajectory on the square table.}
+
+
+\equation{M_{(slope)}=\frac{c_{2}}{c_{1}}}
+
+
+\paragraph{where $c_{2}$ and $c_{1}$ are the number of times the trajectory passes through the horizontal and vertical sides respectively on the identified square.\\ Since we have labelled the horizontal identified side as A, and the vertical identified side as B, we can state the following:}
+
+\paragraph{\textit{Theorem}: For a cutting sequence given by a finite number of A’s and B’s (i.e, a periodic trajectory), we can determine the slope of the trajectory by the following relation:}
+
+\equation{Slope = \frac{# of A's}{# of B's} \hspace in the cutting sequence}
 
 
 
