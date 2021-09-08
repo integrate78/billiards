@@ -258,6 +258,10 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 \paragraph{We see that $m$ is necessarily a rational number. Thus, periodic trajectories on a square table correspond to rational slopes. Also, we see that the period $n$ is given by $n = c_1 + c_2$}
 
 
+
+
+
+
 \chapter{Billiards Dynamics in Square Torus}
 
 \paragraph{In this chapter, we take the example of a simple polygon- the square- and describe billiard dynamics in it. A square has an even number of sides, with opposite sides being parallel. Thus, we can use all the tools and methods that we introduced in chapter 1, and we will see they give us a very good description of the general trajectory on a square table, owing to the specific properties of the square.}
@@ -297,6 +301,257 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 
 
+
+
+
+\appendix
+
+\chapter{Properties regarding vertices on a surface}
+
+\section{Flat surfaces}
+
+\paragraph{To test whether a surface is flat, we do two simple tests:}
+
+\begin{itemize}
+\item \textbf{The given surface is kept on a plane table, if the surface is plane, we won’t see any peaks or trenches. The given surface sticks to the plane table.}
+
+\item \textbf{ We measure the angle around the vertices (the points along which the surface can be rolled and twisted). If the angle comes out to be an integral multiple of $2\pi$, we can say that surface is flat.}
+\end{itemize}
+
+\paragraph{These two tests leave us with the following definition of a plane surface.}
+
+
+
+\paragraph{\textit{DEFINITION}: A surface is called flat if it looks like the flat plane everywhere, except possibly at finitely many cone points (vertices), where the vertex angle is a multiple of $2\pi$.}
+
+\paragraph{Test 1 is an observation. We can mentally or physically see if kept on a plane surface, do we see a plane surface or a surface with ups and downs.}
+
+\paragraph{Test 2 is a calculation. We must know the process to determine an angle around a vertex.}
+
+\paragraph{To measure the angle around a vertex we use the following step sequence:}
+
+\begin{enumerate}
+\item \textbf{Identify all the vertices (as given in section 1.3}
+
+\item \textbf{Select any vertex and select its opposite identified point.}
+
+\item \textbf{Draw an arrow in the anti-clockwise direction between the edges that contain that point.}
+
+\item \textbf{Find the oppositely identified edge, of the edge that touches the head of arrow.}
+
+\item \textbf{From the edge identified in step 4, we draw another arrow that goes in the same direction as given by the arrow in step 3.}
+
+\item \textbf{Repeat steps 4 and 5 until we reach the initially selected point and the whole surface vertex is surrounded.}
+
+\item \textbf{Now measure angles of the identified polygon vertices, and add them up. This is the angle around the surface vertex in question}
+\end{enumerate}
+
+
+\section{Vertices of a Regular 2n-gon}
+
+\paragraph{We state and prove a theorem regarding the number of vertices of a surface made by identifying a regular 2n-gon (a polygon with 2 sides)}
+
+\paragraph{\textit{THEOREM}- If $S_G$ is a surface made by identifying the oppositely oriented edges of a $2n$-gon $G$, then 
+$S_G$ has 2 vertices if $n$ is odd, and 1 vertex if $n$ is even}
+
+\paragraph{\textit{Proof}:We take a $2n$-gon $G$, and identify it into a surface $S_G$. Let $G$ have vertices $V_1$, $V_2$,....$V_2n$}
+
+\paragraph{Consider the vertex identification process in section 1.3}
+
+\paragraph{Notice that in this process, we start with a vertex each from side 1 and 1’ (say, $V_1$ and $V_1’ = V_k$), and then start identifying alternating vertices, proceeding clockwise or anticlockwise from $V_1$ and $V_1’$. It is clear that all vertices of an even index will be definitely identified together (same for odd indexed vertices) -- (1).}
+
+\paragraph{The question is whether the odd vertices can be identified with even vertices.}
+
+\paragraph{If $n$ is even, then $V_k$ has an even index ($k$ = even). This means that $V_1$ (an odd indexed vertex) and $V_k$ (an even indexed vertex) are identified. From statement (1) then, this means that all vertices are identified into 1 surface vertex in $S_G$.}
+
+\paragraph{If $n$ is odd, then $V_k$ has an odd index ($k$ = odd). Since $V_1$ and $V_k$ are identified, the iteration of the identification process starting from $V_1$ will only include odd indexed vertices (since both $V_1$ and $V_k$ are odd indexed). Thus, we will need another iteration to identify all the even indexed vertices together, which means that we will have two surface vertices in $S_G$ in total.}
+
+
+
+\chapter{All shears can be constructed from basic shears}
+
+\paragraph{We will consider all integer shears here, i.e, shears of the form 
+$\begin{bmatrix}
+1&m\\0&1
+\end{bmatrix}$
+and
+$\begin{bmatrix}
+1&0\\n&1
+\end{bmatrix}$,
+where m and n are integers
+We wish to prove that all such one directional shears can be created from 2 basic shears}
+
+
+\paragraph{The basic shear maps are 
+$\begin{bmatrix}
+1&1\\0&1
+\end{bmatrix}$
+and
+$\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}$
+}
+
+\paragraph{These maps have the following effect:}
+
+\begin{enumerate}
+\item \textbf{The matrix
+$\begin{bmatrix}
+1&1\\0&1
+\end{bmatrix}$
+shears the square torus 
+horizontally by unit length.
+}
+
+\item \textbf{The matrix
+$\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}$
+shears the square torus vertically 
+by unit length.
+}
+\end{enumerate}
+
+\paragraph{Note that these are unit shears in the positive $x$ and $y$ directions. The inverse of these matrices will shear the square torus in the negative $x$ and $y$ directions respectively.}
+
+\paragraph{We will now show that a general integer shear along the positive $y$ axis can be built using the unit shear in the same direction.}
+
+\paragraph{\textit{THEOREM}- The general vertical shear map
+$\begin{bmatrix}
+1&0\\n&1
+\end{bmatrix}$
+can be written as
+$\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}^n$,
+where m is a positive integer
+}
+
+\paragraph{\textit{Proof}- We will prove this by induction. Note that}
+
+\begin{equation}
+\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}
+\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}=
+\begin{bmatrix}
+1&0\\2&1
+\end{bmatrix}
+\end{equation}
+
+\paragraph{Thus, the theorem holds for $n=1$ and $2$}
+
+\paragraph{Now suppose it holds for $n=k$, i.e,}
+
+\begin{equation}
+\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}^k
+=
+\begin{bmatrix}
+1&0\\k&1
+\end{bmatrix}
+\end{equation}
+
+\paragraph{Then,}
+
+\begin{equation}
+\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}^{k+1}
+=
+\begin{bmatrix}
+1&0\\k&1
+\end{bmatrix}
+\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&0\\k+1&1
+\end{bmatrix}
+\end{equation}
+
+\paragraph{Thus, by induction, the theorem holds for all positive integer values of n}
+
+\paragraph{For the negative integers, we note that the matrix for a unit shear in the negative $y$ direction is 
+$\begin{bmatrix}
+1&0\\-1&1
+\end{bmatrix}$
+(inverse of the positive unit vertical shear) The $nth$ power of this matrix can be shown to be 
+$\begin{bmatrix}
+1&0\\-n&1
+\end{bmatrix}$
+In that case, if n is a positive integer}
+
+\begin{equation}
+\begin{bmatrix}
+1&0\\1&1
+\end{bmatrix}^{-n}
+=
+\begin{bmatrix}
+1&0\\-1&1
+\end{bmatrix}^n
+=
+\begin{bmatrix}
+1&0\\-n&1
+\end{bmatrix}
+\end{equation}
+
+\paragraph{Thus, the theorem holds for negative integer values of $n$ too.}
+
+\paragraph{A similar argument shows that
+$\begin{bmatrix}
+1&1\\0&1
+\end{bmatrix}^m
+=
+\begin{bmatrix}
+1&m\\0&1
+\end{bmatrix}
+$ 
+for all integer $m$, giving us a general formula for all integer shears along the x axis.
+}
+
+
+\chapter{Drawing a given trajectory of $\frac{p}{q}$ slope on square torus.}
+
+
+\paragraph{The basic rule we will exploit throughout the process is}
+
+\begin{displaymath}
+slope=\frac{\# of As}{\# of Bs}
+\end{displaymath}
+
+\paragraph{The above relation implies: The trajectory of slope $p/q$ intersects edge A $p$ times and edge B q times.}
+
+\paragraph{Since the trajectory is a straight line, the points where the trajectory intersects with edges, must be equally spaced.}
+
+\paragraph{We utilise following steps to draw any given trajectory of slope $\frac{p}{q}$ on the square torus:}
+
+\paragraph{1. If p is odd}
+
+\begin{enumerate}
+\item[a] \textbf{Make a mark on the midpoint of edge A}
+
+\item[b] \textbf{Now distribute the remaining $(p-1)$ points on either side of the midpoint, keeping them equally spaced from each other}
+\end{enumerate}
+
+\paragraph{\quad If $p$ is even}
+\begin{enumerate}
+\item[a] \textbf{distribute the $p$ points on edge A, and ensure equal spaces between every consecutive point.}
+\end{enumerate}
+
+\begin{enumerate}
+\item[2] \textbf{Repeat step 1 with $q$ on edge B}
+
+\item[3] \textbf{To join these points, we start at the top left vertex, go anti-clockwise for the points on the left and bottom edge, and clockwise for the sides top and right edge. We join corresponding indexed points (i.e, the first point going clockwise from the top left vertex to the first point going anti-clockwise, and so forth) (Fig A.2)}
+\end{enumerate}
+
+%Fig A.2
+
+\paragraph{We can thus successfully draw a trajectory of slope p/q on the square torus using cutting sequences.}
 
 
 \end{document}
