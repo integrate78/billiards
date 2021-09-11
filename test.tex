@@ -300,7 +300,104 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 \equation{Slope = \frac{# of A's}{# of B's} \hspace in the cutting sequence}
 
 
+\section{Cutting Sequences and Continued fractions}
 
+\paragraph{We now introduce our most powerful relation, utilizing the idea of continued fractions mentioned earlier, and the effect of the symmetry transformations on cutting sequences.}
+
+\paragraph{Consider a periodic trajectory $\tau$ on the square torus with a rational slope $m$. We will select two linear transformations- 
+a vertical shear
+$S=\begin{bmatrix}
+1&0\\-1&1
+\end{bmatrix}$
+and flipping about a diagonal 
+$F=\begin{bmatrix}
+0&1\\1&0
+\end{bmatrix}$.
+Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gives $\tau’$ the reciprocal of the slope of $\tau$}
+
+\paragraph{We apply $S$ and $F$ using the following algorithm (We shall term it the \textit{$S/F$ algorithm} in this text)-}
+
+\begin{itemize}
+\item \textbf{If $m>1$, we apply $S$ repeatedly till the resultant slope is less than $1$}
+
+\item \textbf{If $m<1$, we apply $F$, to turn it into a resultant slope that is greater than $1$}
+
+\item \textbf{If $m=0$, we stop.}
+\end{itemize}
+
+\paragraph{It is easy to see that there is a striking similarity between the process of applying $S$ and $F$, and the process of taking the continued fraction expansion of the slope of $\tau$. This similarity is what allows us to describe a process of converting a trajectory of a given slope into a horizontal trajectory (We will see why this is useful shortly)}
+
+\paragraph{Let us solidify this relationship. Consider a periodic trajectory $\tau$  with slope $m$. Applying the $S/F$ algorithm to $\tau$ till the slope becomes $0$, gives us a series of steps (Applying $S$ a finite number of times, and applying $F$ once). Let $m_n$ be the slope after the nth step in the series. Applying the continued fraction algorithm to $m$ gives us the continued fraction expansion (another series of steps). Let $k_n$ be the fraction part left after the $nth$ step of the series. The following example explains what we mean by $k_n$ }
+
+\begin{equation}
+\frac{8}{5}=1+\frac{3}{5}=1+\frac{1}{\frac{5}{3}}=1+\frac{1}{1+\frac{2}{3}}=1+\frac{1}{1+\frac{1}{\frac{3}{2}}}=1+\frac{1}{1+\frac{1}{1+\frac{1}{2}}}
+\end{equation}
+
+\paragraph{(The highlighted number at the $nth$ step is $k_n$)}
+
+\paragraph{We start by noting that at the $nth$ step, $m_n = k_n$ (as shown in fig) (note that this is the reason why we can be confident that the $S/F$ algorithm will eventually lead to $0$ slope, for a starting rational slope, since the fraction part of the continued fraction expansion for rational numbers will eventually become $0$)}
+
+\paragraph{If the $n+1th$ step in the $S/F$ sequence involves $i$ consecutive $S$’s, then we subtract $i$ from $m_n$ so that $m_{n+1}$ is a proper fraction. In the continued fraction expansion, this $n+1th$ step will correspond to subtracting $i$ from $k_n$, so that $k_{n+1}$ is a proper fraction (This is because $m_n = k_n$). Note also that $i$ will be an entry in the final continued fraction expansion (since $k_n$ is written as $i + k_{n+1}$). \textit{Thus, a consecutive set of $i$ applications of $S (= S_i)$ to the trajectory corresponds to a continued fraction expansion entry of value $i$ -- (1)}}
+
+\paragraph{If the $n+1th$ step in the $S/F$ sequence involves an $F$, then we take the reciprocal of $m_n$, so that $m_{n+1}$ is $\frac{1}{m_n}$ (note that since we are applying $F$, $m_n$ must be proper). In the continued fraction expansion, this $n+1th$ step will correspond to taking the reciprocal of $m_n$ (This is because, since $m_n = k_n$, $k_n$ is also proper, and so we take the reciprocal according to the continued fraction algorithm). Note that the next ($n+2th$) step in the continued fraction algorithm will add a new term to the expansion, and the $n+2th$ step in the $S/F$ algorithm is to apply $S$ (since $m_{n+1}$ is improper). \textit{Thus, each $F$ in the $S/F$ algorithm corresponds to a transition from one entry in the continued fraction algorithm, to the next entry.-- (2)}}
+
+\paragraph{Thus, we see that there is a very elegant relationship between transformations using $S$ and $F$, and the continued fraction expansion of the slope of a trajectory. We see that we can use the continued fraction expansion of the slope to understand precisely how a trajectory has been transformed (using statements \textit{(1)} and \textit{(2)}). This is extremely useful for us, because it enables us to arrive at the exact cutting sequence of a trajectory, given only the slope.  (note that up till now, we have only known how to calculate the number of $A$’s and $B$’s in the sequence, given the trajectory slope. Now, we can know the exact sequence).}
+
+\paragraph{The following theorem illustrates how we approach the process of obtaining a cutting sequence from the slope.}
+
+\paragraph{\textit{THEOREM- Suppose a periodic trajectory $\tau$ on the square torus has a slope $m=\frac{p}{q}$. Let $[c_1, c_2,..., c_n]$ be the continued fraction expansion of $m$. Then, starting from the horizontal trajectory (given by the cutting sequence $\bar{B}$), we can use the continued fraction expansion of $m$ to obtain the exact cutting sequence of $\tau$ as follows:}}
+
+\begin{enumerate}
+\item \textbf{ \textit{Start with a string of B’s.}}
+
+\item \textbf{ \textit{Add $c_n$ $A$’s between each consecutive pair of $B$’s}}
+
+\item \textbf{ \textit{Swap the $A$’s and $B$’s}}
+
+\item \textbf{ \textit{Repeat out steps $2$ and $3$ for $c_{n-1}$,... till $c_1$}}
+\end{enumerate}
+
+\paragraph{\textit{The resultant cutting sequence is the one corresponding to $\tau$ , i.e, c($\tau$)}}
+
+\paragraph{\textit{Proof:}We chose $p+q$ $B$’s because we already know that is the period of the trajectory. We already know that the exact way in which we apply $S$ and $F$ tells us how the cutting sequence changes at each step (refer section on symmetries). Thus, we assume that $c(\tau)$ exists, and that a particular series of $S$ and $F$ transformations is applied to $\tau$ according to the $S/F$ algorithm. All we need to do then, is travel back along the series (essentially, undo the series, starting from the final $B$ sequence). We will arrive at $c(\tau)$.}
+
+\paragraph{Since we know how to interpret the steps of the $S/F$ algorithm exactly in terms of the continued fraction expansion of $m$, we can simply carry out the undoing process in terms of the expansion. Since $c_i$ in the expansion corresponds to applying $S$ $c_i$ times (which in turn means we remove $c_i$ $A$’s from each consecutive set of $A$’s), in the undoing process we just add $c_i$ $A$’s between every consecutive pair of $B$’s to the sequence. Going from $c_i$ to $c_{i+1}$ corresponds to applying $F$ (which in turn means we swap the $A$’s and $B$’s), so in the undoing process we simply swap the $A$’s and $B$’s in moving from  $c_i$ to $c_{i+1}$.}
+
+\paragraph{We illustrate this method using the following example:}
+
+
+\paragraph{\textit{EXAMPLE:} We will find the cutting sequence of a trajectory $\tau$ with slope $m=\frac{5}{3}$. To do so, we first find the continued fraction expansion of $\frac{5}{3}$ }
+
+\begin{equation}
+\frac{5}{3}=1+\frac{2}{3}=1+\frac{1}{\frac{3}{2}}=1+\frac{1}{1+\frac{1}{2}}
+\end{equation}
+
+\paragraph{Thus, the continued fraction expansion of $\frac{5}{3}$ is $[1,1,2]$}
+
+\begin{enumerate}
+\item \textbf{We start with a bi-infinite sequence of B’s.
+\\* \\* $\overline{B}$}
+
+\item \textbf{Add 2 A’s to each collection of A’s, since the last entry in the continued fraction expansion is 2.
+\\* \\* $\overline{BAA}$}
+
+\item \textbf{Flip the A’s and B’s
+\\* \\* $\overline{ABB}$}
+
+\item \textbf{Add 1 A to each collection of A’s (since the 2nd entry in continued fraction expansion is 1).
+\\* \\* $\overline{AABAB}$}
+
+\item \textbf{Flip the A’s and B’s
+\\* \\* $\overline{BBABA}$}
+
+\item \textbf{Add 1 A to each collection of A’s (since the 2nd entry in continued fraction expansion is 1)
+\\* \\* $\overline{BABAABAA}$}
+\end{enumerate}
+
+\paragraph{Thus, $\overline{BABAABAA}$ is the continued fraction expansion of a trajectory of slope $\frac{5}{3}$ on the square table.}
+
+
+\paragraph{Note- We have, in our entire analysis, considered trajectories with slope in the range $[0, \pi/2]$. However, we may extend all our discussions to the $[$-$\pi/2, 0]$ range by simply observing that if a cutting sequence corresponds to a particular slope $m$, then the exact same cutting sequence corresponds to -$m$. This is because a trajectory of slope -$m$ can be created by flipping the table containing a trajectory with slope $m$ (i.e, an orientation reversing vertical flip). Since this preserves the positions of side $A$ and $B$ in the square torus, the cutting sequence remains unchanged. Thus, a trajectory of slope -$m$ has the same cutting sequence that a trajectory of slope $m$ does.}
 
 
 
