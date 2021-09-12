@@ -1,5 +1,6 @@
 \documentclass{report}
 \title{Billiards}
+\usepackage{graphicx}
 \usepackage{xfrac}
 \usepackage{blindtext}
 \usepackage{amsmath}
@@ -16,11 +17,12 @@
 
 
 \section{The rules of billiard dynamics}
-\paragraph{Consider a simple polygonal billiard table, and let a projectile be free to move inside it, similar to a cue ball (Fig 1.1). We assume that all collisions with the sides of the square are completely elastic (i.e., angle of incidence = angle of reflection, and no loss of speed occurs after the collision). We further assume that any collision with a vertex will prevent any further motion (one can imagine that the projectile gets “stuck” at the vertex).}
+\paragraph{Consider a simple polygonal billiard table, and let a projectile be free to move inside it, similar to a cue ball (Fig 1.1). We assume that all collisions with the sides of the square are completely elastic (i.e., angle of incidence = angle of reflection, and no loss of speed occurs after the collision). We further assume that any collision with a vertex will prevent any further motion (one can imagine that the projectile gets “stuck” at the vertex). \\ \\ }
 
 %Fig 1.1
-
-
+\begin{center}
+\includegraphics[scale=0.3]{1}
+\end{center}
 
 \paragraph{Note- For reasons that will be clear later, we restrict our discussion to tables in the shape of polygons with an even no of sides, with opposite sides being parallel.}
  
@@ -29,7 +31,14 @@
 \paragraph{Note- It is clear now why we restrict ourselves to polygonal tables with even number of sides- only these shapes can be identified to form a surface.}
 
 %Fig 1.2
+\begin{center}
+\includegraphics[scale=0.3]{2}
+\end{center}
+
 %Fig 1.3
+\begin{center}
+\includegraphics[scale=0.3]{3}
+\end{center}
 
 \section{Basic terminology and characterization of trajectories}
 \paragraph{Identifying a polygon into a surface results, as one may note, into a continuous representation of the trajectory with a single constant slope at all points. Thus, a trajectory can be uniquely identified by this slope. We will refer to it as \textit{m}}
@@ -39,6 +48,9 @@
 \paragraph{We can thus label identified sides uniquely, and create a sequence of all the identified sides that the projectile goes through (Fig 1.4 ). If we write this sequence like a word, then we attain what is known as a cutting sequence. Fig 4 shows some examples}
 
 %Fig 1.4
+\begin{center}
+\includegraphics[scale=0.3]{4}
+\end{center}
 
 \paragraph{Describing a trajectory as a cutting sequence, we may try to ask some explicit questions about the trajectory, such as}
 
@@ -98,9 +110,12 @@
 
 \paragraph{We iterate this process repeatedly till we have covered every polygon vertex (Note that the number of iterations = the number of surface vertices)}
 
-\paragraph{Figure (1.7) illustrates vertex counting scenario for a hexagon}
+\paragraph{Figure (1.5) illustrates vertex counting scenario for a hexagon}
 
-%Fig 1.7
+%Fig 1.5
+\begin{center}
+\includegraphics[scale=0.3]{5}
+\end{center}
 
 \paragraph{A number of theorems can be proven regarding the number of vertices in a polygon identified surface. We illustrate a few of them in the appendix}
 
@@ -129,7 +144,15 @@ $ (\begin{bmatrix}
 \item \textbf{Shearing}
 
 %Fig 1.6
+\begin{center}
+\includegraphics[scale=0.3]{6}
+\end{center}
+
 %Fig 1.7
+\begin{center}
+\includegraphics[scale=0.3]{7}
+\end{center}
+
 
 \end{enumerate}
 
@@ -143,6 +166,9 @@ $ (\begin{bmatrix}
 \paragraph{When a surface is twisted in a direction such that points on a line parallel to this direction remain stationary, we call it shearing of the surface. (Fig 1.8)}
 
 %Fig 1.8
+\begin{center}
+\includegraphics[scale=0.3]{8}
+\end{center}
 
 \paragraph{\textit{DEFINITION}: A linear transformation of the form
 $ (\begin{bmatrix}
@@ -186,12 +212,18 @@ $ (\begin{bmatrix}
 \paragraph{We assume the projectile on the table starts off in a particular direction (say, angle $\theta$ and slope $m = tan\theta$). When it hits a particular side, we simply create a mirror reflection of the polygon about that side (“unfold” the table in the direction of that side), and let the projectile continue on its path in the same direction. Every time it hits a side, we unfold the polygon along that side (Fig 1.9).}
 
 %Fig 1.9
+\begin{center}
+\includegraphics[scale=0.3]{9}
+\end{center}
 
 \paragraph{The result is that we get a tiled representation of the flat plane (a graph, of sorts) on which the trajectory is a straight line of slope $m$. We call this the unfolded trajectory.}
 
 \paragraph{We introduce this method because it enables us to easily determine which trajectories in a polygonal table are periodic, and which are not.}
 
 %Fig 1.10
+\begin{center}
+\includegraphics[scale=0.3]{10}
+\end{center}
 
 \paragraph{If a trajectory of slope $m$ would be periodic on a particular polygon table, then it means that on the unfolded trajectory, it will pass through the same point on a different polygon as it started from in the first polygon (i.e, it joins corresponding points on two separate polygons on the tiled representation) (Fig 1.10). Conversely, if the trajectory passes through a point on the $n$th polygon that corresponds to the starting position of the first polygon, then the trajectory is periodic. Thus, we know that passing through the same position as the starting position on the $n$th polygon is a sufficient and necessary condition for periodicity. Moreover, the period of the trajectory is $n$.}
 
@@ -199,13 +231,19 @@ $ (\begin{bmatrix}
 
 \paragraph{Consider a polygonal billiard table, and the unfolded tiled representation of the table. Consider a trajectory that starts at the center of the first polygon, and passes through the center of the $n$th polygon that it crosses. Clearly, it is a periodic trajectory of period $n$. Let its slope be $m$.}
 
-Fig 1.11
+%Fig 1.11
+\begin{center}
+\includegraphics[scale=0.3]{11}
+\end{center}
 
 \paragraph{We can create a reconstruction of this trajectory by first creating an ordered sequence of all the polygons that the trajectory passes through, and then joining the centers of the adjacent polygons in the sequence (An illustration of this is shown in (Fig 1.11)). This is a vector decomposition of the trajectory, where each of the constituent vectors are of equal length, and their directions correspond to the normal to each of the sides of the polygon in question. This set of vectors for each polygon can thus be used to construct a center to center trajectory. Call this set $E$.}
 
 \paragraph{We can generalize this by noting that a center to center trajectory can be translated in such a way that it connects any two corresponding points of the $1$st and $n$th polygon, with the same vector decomposition as before (since all vectors stay constant under a translation), as well as the same slope (Fig 1.12). Since we have already seen that the general periodic trajectory always connects corresponding points of two polygons in the tiled representation, we can see that the vectors used to construct a center to center trajectory of slope $m$ can be used to construct any periodic trajectory of slope $m$ (i.e, a trajectory of slope $m$ with any starting point, or simply, the general trajectory of slope $m$).}
 
 %Fig 1.12
+\begin{center}
+\includegraphics[scale=0.3]{12}
+\end{center}
 
 \paragraph{There is hence a very powerful relationship between the nature of the polygon, and the periodicity conditions of a trajectory on it. This can be encapsulated in the following theorem:}
 
@@ -273,21 +311,33 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 \paragraph{If we identify the opposite sides of a square, we obtain a 3D object called a torus. A square torus in a 2D plane looks exactly like a flat square but has only two distinct sides, A and B, each of which is represented by a set of opposite sides on the flat square (Fig 2.1) A square torus has a genus of 1, and Euler Characteristic value of 0 (calculated as per the formulae given in Ch 1).}
 
 %Fig 2.1
+\begin{center}
+\includegraphics[scale=0.3]{2.1}
+\end{center}
 
 \paragraph{Note: We make a distinction between a square torus and  torus. A square torus is simply a 2D representation of a torus in terms of a square. We may make a parallelogram torus in this way too, for example (Fig 2.2)
 }
 
 %Fig 2.2
+\begin{center}
+\includegraphics[scale=0.3]{2.2}
+\end{center}
 
 \paragraph{Notice that a square torus has one surface vertex (Fig 2.3). Also, the angle around the vertex is $4\frac{\pi}{2} = 2\pi$, making the vertex indistinguishable from any other point on the surface (i.e, a flat surface).}
 
 %Fig 2.3
+\begin{center}
+\includegraphics[scale=0.3]{2.3}
+\end{center}
 
 \section{Cutting sequences on a Square Torus}
 
 \paragraph{Trajectories on a square torus can be described, like any other identified polygon, in terms of cutting sequences. For a square torus, since we have only two distinct sides A and B, the cutting sequences are bi-infinite permutations of A’s and B’s (Fig 2.4). For periodic trajectories, note that the cutting sequence will be a finite permutation repeated infinitely.}
 
 %Fig 2.4
+\begin{center}
+\includegraphics[scale=0.3]{2.4}
+\end{center}
 
 \paragraph{In Chapter 1, we stated an equation to find the slope of a trajectory on the square table.}
 
@@ -318,11 +368,30 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 \begin{enumerate}
 \item \textbf{\emph{Reflection:}With a fixed vertex we can observe the reflection symmetry of a square torus along vertical, horizontal and diagonal lines of symmetry.(Fig 2.5) }
+
 %Fig 2.5
+\begin{center}
+\includegraphics[scale=0.3]{2.5}
+\end{center}
+
 \item \textbf{\emph{Rotation:}We can observe rotation symmetry by rotating the square torus by a multiple of pi/2. (Fig 2.6 and Fig 2.7)}
-%Fig 2.6 %Fig 2.7
+
+%Fig 2.6
+\begin{center}
+\includegraphics[scale=0.3]{2.6}
+\end{center}
+
+ %Fig 2.7
+\begin{center}
+\includegraphics[scale=0.3]{2.7}
+\end{center}
+
 \item \textbf{\emph{Shear:}As defined before (Fig 2.8). \\  \\ Note that a shear map on the square does not necessarily map it back to a square (since interior angles are not respected by shear maps, they map to a parallelogram in general). The necessary rearrangement involves translating a part of the parallelogram as shown in the figure. }
+
 %Fig 2.8
+\begin{center}
+\includegraphics[scale=0.3]{2.8}
+\end{center}
 
 \end{enumerate}
 
@@ -374,7 +443,11 @@ If a cutting sequence has AA’s somewhere then it passes through the diagonal, 
 If a cutting sequence has BB’s somewhere, it also must pass through the diagonal, but its slope must be smaller than 1. \\ 
 Since, a cutting sequence can only represent a single slope, it's not possible to have AA’s and BB’s somewhere in the same cutting sequence (Fig 2.9).
 \end{proof}
+
 %Fig 2.9
+\begin{center}
+\includegraphics[scale=0.3]{2.9}
+\end{center}
 
 \begin{theorem}
 A cutting sequence featuring both blocks of multiple A’s separated by single B’s and blocks of multiple B’s separated by single A’s, is an invalid cutting sequence.
@@ -394,6 +467,9 @@ Let $M = \begin{bmatrix} 1&0\\-1&1 \end{bmatrix}$ This is a map that shears the 
 \end{enumerate}
 
 %Fig2.10
+\begin{center}
+\includegraphics[scale=0.3]{2.10}
+\end{center}
 
 \paragraph{Consider a trajectory $\tau$ on the torus. We notice the following things about its cutting sequence $c(\tau)$:}
 \begin{itemize}
@@ -749,13 +825,23 @@ slope=\frac{\# of As}{\# of Bs}
 \item[a] \textbf{distribute the $p$ points on edge A, and ensure equal spaces between every consecutive point.}
 \end{enumerate}
 
-\begin{enumerate}
-\item[2] \textbf{Repeat step 1 with $q$ on edge B}
+\paragraph{Note: Since in the square torus, the side B is really a circle, make sure the distance between extreme marked points is equal to all other spaces. Another way to look at it is to place extreme points at d/2 distance from the corner of the square, where d is the space between two consecutive points. Now, when we go between the extreme points via the vertex we find distance = d/2 + d/2 = d, the required distance. (Fig A.1)}
 
-\item[3] \textbf{To join these points, we start at the top left vertex, go anti-clockwise for the points on the left and bottom edge, and clockwise for the sides top and right edge. We join corresponding indexed points (i.e, the first point going clockwise from the top left vertex to the first point going anti-clockwise, and so forth) (Fig A.2)}
+%Fig A.1
+\begin{center}
+\includegraphics[scale=0.3]{a.1}
+\end{center}
+
+\begin{enumerate}
+\item[3] \textbf{Repeat step 1 with $q$ on edge B}
+
+\item[4] \textbf{To join these points, we start at the top left vertex, go anti-clockwise for the points on the left and bottom edge, and clockwise for the sides top and right edge. We join corresponding indexed points (i.e, the first point going clockwise from the top left vertex to the first point going anti-clockwise, and so forth) (Fig A.2)}
 \end{enumerate}
 
 %Fig A.2
+\begin{center}
+\includegraphics[scale=0.3]{a.2}
+\end{center}
 
 \paragraph{We can thus successfully draw a trajectory of slope p/q on the square torus using cutting sequences.}
 
