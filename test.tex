@@ -3,6 +3,7 @@
 \usepackage{xfrac}
 \usepackage{blindtext}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{mathtools}
 \newtheorem{theorem}{Theorem}
@@ -19,7 +20,7 @@
 
 %Fig 1.1
 
-\equation{3}
+
 
 \paragraph{Note- For reasons that will be clear later, we restrict our discussion to tables in the shape of polygons with an even no of sides, with opposite sides being parallel.}
  
@@ -269,7 +270,7 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 \section{The Square torus and identifying sides}
 
-\paragarph{If we identify the opposite sides of a square, we obtain a 3D object called a torus. A square torus in a 2D plane looks exactly like a flat square but has only two distinct sides, A and B, each of which is represented by a set of opposite sides on the flat square (Fig 2.1) A square torus has a genus of 1, and Euler Characteristic value of 0 (calculated as per the formulae given in Ch 1).}
+\paragraph{If we identify the opposite sides of a square, we obtain a 3D object called a torus. A square torus in a 2D plane looks exactly like a flat square but has only two distinct sides, A and B, each of which is represented by a set of opposite sides on the flat square (Fig 2.1) A square torus has a genus of 1, and Euler Characteristic value of 0 (calculated as per the formulae given in Ch 1).}
 
 %Fig 2.1
 
@@ -291,14 +292,18 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 \paragraph{In Chapter 1, we stated an equation to find the slope of a trajectory on the square table.}
 
 
-\equation{M_{(slope)}=\frac{c_{2}}{c_{1}}}
-
+\begin{displaymath}
+{M_{(slope)}=\frac{c_{2}}{c_{1}}}
+\end{displaymath}
 
 \paragraph{where $c_{2}$ and $c_{1}$ are the number of times the trajectory passes through the horizontal and vertical sides respectively on the identified square.\\ Since we have labelled the horizontal identified side as A, and the vertical identified side as B, we can state the following:}
 
 \paragraph{\textit{Theorem}: For a cutting sequence given by a finite number of A’s and B’s (i.e, a periodic trajectory), we can determine the slope of the trajectory by the following relation:}
 
-\equation{Slope = \frac{\text{\# of A's in the cutting sequence}}{\text{\# of B's in the cutting sequence}} }
+\begin{equation}
+{Slope = \frac{\text{\# of A's in the cutting sequence}}{\text{\# of B's in the cutting sequence}} }
+\end{equation}
+
 
 \paragraph{(proof in appendix) 
 (appendix also has a section on drawing trajectories given the cutting sequences, with example exercises and proof of Ex 3.3)}
@@ -323,22 +328,30 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 \section{Continued fractions}
 
-\paragraph{Continued fractions are a method of representing real numbers in terms of a (finite or infinite) sequence of integers, using a general algorithm. \\ Eg- Continued fraction expansion of  and pi (show the algorithm via these examples)}
+\paragraph{Continued fractions are a method of representing real numbers in terms of a (finite or infinite) sequence of integers, using a general algorithm. \\ Eg- Continued fraction expansion of $\frac{13}{5}$ and $\pi$ (show the algorithm via these examples)}
 
-\equation{\frac{13}{5} = 2 + \frac{1}{\frac{13}{5}} = 2+ \frac{1}{1 + \frac{2}{3}} = 2+ \frac{1}{1 + \frac{1}{\frac{3}{2}}} = 2+ \frac{1}{1 + \frac{1}{1 + \frac{1}{2}}}}
+
+\begin{displaymath}
+{\frac{13}{5} = 2 + \frac{1}{\frac{13}{5}} = 2+ \frac{1}{1 + \frac{2}{3}} = 2+ \frac{1}{1 + \frac{1}{\frac{3}{2}}} = 2+ \frac{1}{1 + \frac{1}{1 + \frac{1}{2}}}}
+\end{displaymath}
+
  
-\paragraph{Thus, the continued fraction expansion of 13/5 is [2;1,1,2] \\ Above example resulted in finite expansion, the folowing expansion of \pi shows that expansions can be never ending.}
+\paragraph{Thus, the continued fraction expansion of $\frac{13}{5}$ is $[2;1,1,2]$ \\ Above example resulted in finite expansion, the folowing expansion of $\pi$ shows that expansions can be never ending.}
 
-\equation{\pi = 3 + \frac{1}{7 + \frac{1}{15 + \frac{1}{1 + \frac{1}{292 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ddots}}}}}}}}
+\begin{displaymath}
+{\pi = 3 + \frac{1}{7 + \frac{1}{15 + \frac{1}{1 + \frac{1}{292 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ddots}}}}}}}}
+\end{displaymath}
 
-\paragraph{Thus, the continued fraction expansion of $\pi$ \text{ is } [3; 7, 15, 1, 292, 1, 1,\cdots]}
+
+\paragraph{Thus, the continued fraction expansion of $\pi$ is $[3; 7, 15, 1, 292, 1, 1,\cdots]$}
+
 
 \begin{enumerate}
 
-\item \textbf{We started with the original number (say, \sfrac{a}{b}) in improper fraction form}
+\item \textbf{We started with the original number (say, $\sfrac{a}{b}$) in improper fraction form}
 \item \textbf{We subtracted an integer from it such that the remainder fraction is < 1}
-\item \textbf{The remainder fraction, we represent in terms of its reciprocal (Thus, if the remainder fraction is \sfrac{p}{q}, then we write it as \sfrac{1}{\sfrac{q}{p}}. Note that q/p in this case is > 1}
-\item \textbf{We repeat the previous steps, with \sfrac{q}{p} instead of \sfrac{a}{b} in step 1.}
+\item \textbf{The remainder fraction, we represent in terms of its reciprocal (Thus, if the remainder fraction is $\sfrac{p}{q}$, then we write it as $\sfrac{1}{\sfrac{q}{p}}$. Note that $\sfrac{q}{p}$ in this case is > 1}
+\item \textbf{We repeat the previous steps, with $\sfrac{q}{p}$ instead of $\sfrac{a}{b}$ in step 1.}
 \item \textbf{We carry this procedure out till the process cannot be continued anymore. (for a rational number, this will mean that a proper fraction with numerator = 1 has been obtained.)}
 \end{enumerate}
 
@@ -350,10 +363,10 @@ We introduce continued fractions because, as we shall see, there is a powerful r
 
 \paragraph{Having set up the tools of analysis of a square torus, we can begin to analyze trajectories on the square torus. 
 \\ \\
-We start by asking an important question regarding cutting sequences- which of them are valid? How can we be sure that a given permutation of A’s and B’s corresponds to a valid cutting sequence on the square torus? The following theorem will help us in figuring out which sequences are not valid.}
+We start by asking an important question regarding cutting sequences- which of them are valid? How can we be sure that a given permutation of $A$’s and $B$’s corresponds to a valid cutting sequence on the square torus? The following theorem will help us in figuring out which sequences are not valid.}
 
 \begin{theorem}
-A cutting sequence featuring two consecutive A’s somewhere and also two consecutive B’s somewhere, is an invalid cutting sequence.
+$A$ cutting sequence featuring two consecutive $A$’s somewhere and also two consecutive $B$’s somewhere, is an invalid cutting sequence.
 \end{theorem}
 
 \begin{proof}
@@ -369,13 +382,13 @@ A cutting sequence featuring both blocks of multiple A’s separated by single B
 
 \paragraph{We would like to use these conditions to obtain a list of all valid cutting sequences on the square torus. However, it is not feasible to try and characterize cutting sequences individually into groups of valid and invalid. Fortunately, we find that, using the symmetry transformations, we can create an algorithm to create new sequences from a given sequence. If the given sequence turns out to be invalid, it will render all the generated sequences invalid too.}
 
-\paragraph{Consider a trajectory $\tau$ on the surface. If we apply a symmetry transformation \texit{T} on the square torus, it also acts on $\tau$ to give us a new trajectory $\tau^{'}$, with its own cutting sequence $c(\tau^{'})$. Thus, we may obtain a new (and valid) cutting sequence by applying \texit{T} to a given valid sequence  $c(\tau)$.}
+\paragraph{Consider a trajectory $\tau$ on the surface. If we apply a symmetry transformation \textit{T} on the square torus, it also acts on $\tau$ to give us a new trajectory $\tau^{'}$, with its own cutting sequence $c(\tau^{'})$. Thus, we may obtain a new (and valid) cutting sequence by applying \textit{T} to a given valid sequence  $c(\tau)$.}
 
 \paragraph{The exact effects on cutting sequences after applying symmetries to the surface are as follows:}
 
 \begin{enumerate}
-\item \textbf{\emph{Reflection:} If \texit{T} is the reflection transformation along horizontal or vertical lines of symmetry, we observe $c(\tau)$ and $c(\tau^{'})$ remain the same. If \texit{T} is reflection along a diagonal line of symmetry, $c(\tau^{'})$ is $c(\tau)$ with A’s replaced with B’s and B’s replaced with A’s.}
-\item \textbf{\emph{Rotation:}If \texit{T} is a rotation by an odd multiple of \sfrac{\pi}{2}, we observe $c(\tau)$ is $c(\tau^{'})$ with A’s replaced with B’s and B’s replaced with A’s. The cutting sequence remains unchanged (i.e. $c(\tau^{'})$ is $c(\tau)$) when \texit{T} is a rotation is made by an even integral multiple of \sfrac{\pi}{2}}
+\item \textbf{\emph{Reflection:} If \textit{T} is the reflection transformation along horizontal or vertical lines of symmetry, we observe $c(\tau)$ and $c(\tau^{'})$ remain the same. If \textit{T} is reflection along a diagonal line of symmetry, $c(\tau^{'})$ is $c(\tau)$ with A’s replaced with B’s and B’s replaced with A’s.}
+\item \textbf{\emph{Rotation:}If \textit{T} is a rotation by an odd multiple of $\sfrac{\pi}{2}$, we observe $c(\tau)$ is $c(\tau^{'})$ with A’s replaced with B’s and B’s replaced with A’s. The cutting sequence remains unchanged (i.e. $c(\tau^{'})$ is $c(\tau)$) when \textit{T} is a rotation is made by an even integral multiple of $\sfrac{\pi}{2}$}
 \item \textbf{\emph{Shearing:}This one is not nearly as simple. We will consider a specific shear map as an example. \\
 Let $M = \begin{bmatrix} 1&0\\-1&1 \end{bmatrix}$ This is a map that shears the square torus vertically downwards (Fig 2.10) }
 \end{enumerate}
@@ -433,8 +446,7 @@ Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gi
 
 \paragraph{We start by noting that at the $nth$ step, $m_n = k_n$ (as shown in fig) (note that this is the reason why we can be confident that the $S/F$ algorithm will eventually lead to $0$ slope, for a starting rational slope, since the fraction part of the continued fraction expansion for rational numbers will eventually become $0$)}
 
-\paragraph{If the $n+1th$ step in the $S/F$ sequence involves $i$ consecutive $S$’s, then we subtract $i$ from $m_n$ so that $m_{n+1}$ is a proper fraction. In the continued fraction expansion, this $n+1th$ step will correspond to subtracting $i$ from $k_n$, so that $k_{n+1}$ is a proper fraction (This is because $m_n = k_n$). Note also that $i$ will be an entry in the final continued fraction expansion (since $k_n$ is written as $i + k_{n+1}$).\\
- \texit{Thus, a consecutive set of $i$ applications of $S (= S_i)$ to the trajectory corresponds to a continued fraction expansion entry of value $i$ -- (1)}}
+\paragraph{If the $n+1th$ step in the $S/F$ sequence involves $i$ consecutive $S$’s, then we subtract $i$ from $m_n$ so that $m_{n+1}$ is a proper fraction. In the continued fraction expansion, this $n+1th$ step will correspond to subtracting $i$ from $k_n$, so that $k_{n+1}$ is a proper fraction (This is because $m_n = k_n$). Note also that $i$ will be an entry in the final continued fraction expansion (since $k_n$ is written as $i + k_{n+1}$). \textit{Thus, a consecutive set of $i$ applications of $S (= S_i)$ to the trajectory corresponds to a continued fraction expansion entry of value $i$ -- (1)}}
 
 \paragraph{If the $n+1th$ step in the $S/F$ sequence involves an $F$, then we take the reciprocal of $m_n$, so that $m_{n+1}$ is $\frac{1}{m_n}$ (note that since we are applying $F$, $m_n$ must be proper). In the continued fraction expansion, this $n+1th$ step will correspond to taking the reciprocal of $m_n$ (This is because, since $m_n = k_n$, $k_n$ is also proper, and so we take the reciprocal according to the continued fraction algorithm). Note that the next ($n+2th$) step in the continued fraction algorithm will add a new term to the expansion, and the $n+2th$ step in the $S/F$ algorithm is to apply $S$ (since $m_{n+1}$ is improper). \textit{Thus, each $F$ in the $S/F$ algorithm corresponds to a transition from one entry in the continued fraction algorithm, to the next entry.-- (2)}}
 
