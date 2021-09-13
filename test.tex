@@ -7,7 +7,7 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{mathtools}
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[chapter]
 \usepackage{titlesec}
 
 \begin{document}
@@ -88,9 +88,9 @@
 
 \paragraph{Knowledge of the kind of surface we obtain after identifying a polygon can tell us how to approach the analysis of billiard dynamics on it. We may try to predict the obtained surface by tricky geometrical manipulations and visualization, or we may use the concept of the Euler Characteristic.}
 
-\paragraph{We define Euler Characteristic as follows}
+\paragraph{We define the Euler Characteristic as follows}
 
-\paragraph{\textit{DEFINITION:} Given a surface \textit{S} made by identifying edges of polygons, with \textit{V} vertices, \textit{E} edges, and \textit{F} faces, its Euler characteristic $\chi$ is}
+\paragraph{\textbf{Definition.} \textit{Given a surface \textit{S} made by identifying edges of polygons, with \textit{V} vertices, \textit{E} edges, and \textit{F} faces, its euler characteristic $\chi$ is}}
 
 \begin{equation}
 \mathit{\chi(S)=V-E+F}
@@ -98,9 +98,11 @@
 
 \paragraph{In topology, the genus (the number of “holes” in a surface) of the surface plays an important role. From classification of the surfaces to developing homeomorphism between two surfaces, we need to know the genus of the surface.}
 
-\paragraph{The following theorem is an explicit relationship between Euler’s characteristic and the genus of an orientable surface (any surface with a well defined orientation):}
+\paragraph{The following theorem is an explicit relationship between Euler characteristic and the genus of an orientable surface (any surface with a well defined orientation):}
 
-\paragraph{\textit{THEOREM}: A surface \textit{S} with genus \textit{g} has Euler characteristic given by}
+\begin{theorem}
+A surface \textit{S} with genus \textit{g} has an euler characteristic given by
+\end{theorem}
 
 \begin{equation}
 \chi=2-2g
@@ -201,7 +203,7 @@ $ (\begin{bmatrix}
 \end{figure}
 
 
-\paragraph{\textit{DEFINITION}: A linear transformation of the form
+\paragraph{\textbf{Definition.} \textit{A linear transformation of the form
 $ (\begin{bmatrix}
 1&m\\0&1
 \end{bmatrix})$
@@ -209,7 +211,7 @@ or
 $ (\begin{bmatrix}
 1&0\\m&1
 \end{bmatrix})$
-where m is any integer, is a one directional shear map.
+where m is any integer, is a one directional shear map.}
 }
 
 \paragraph{There are two types of shear maps:}
@@ -299,15 +301,19 @@ $ (\begin{bmatrix}
 
 \pagebreak
 
-\paragraph{$THEOREM$- For a given polygon $P$, let $E_P = {e_1,...e_k}$ be the set of the normal vectors to the sides of the polygon (all of the same length). Then any periodic trajectory on the polygon can be constructed by an integer combination of the vectors in $E_P$. Moreover, the slope for a periodic trajectory is necessarily given by.}
+\begin{theorem}
+For a given polygon $P$, let $E_P = {e_1,...e_k}$ be the set of the normal vectors to the sides of the polygon (all of the same length). Then any periodic trajectory on the polygon can be constructed by an integer combination of the vectors in $E_P$. Moreover, the slope for a periodic trajectory is necessarily given by.
 
 \begin{equation}
 m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }  
 \end{equation}
 
-\paragraph{where $c_i \in \mathbb{N}$, and $e_{xi}, e_{yi}$ are the $x$ and $y$ components respectively of the $ith$ vector in $E_P$}
+where $c_i \in \mathbb{N}$, and $e_{xi}, e_{yi}$ are the $x$ and $y$ components respectively of the $ith$ vector in $E_P$
+\end{theorem}
 
-\paragraph{\textit{Proof}:~We have already seen how the vectors of $E_P$ can construct any periodic trajectory. Suppose a particular periodic trajectory of slope $m$ and period $n$ can be decomposed as follows:}
+
+\begin{proof}
+{We have already seen how the vectors of $E_P$ can construct any periodic trajectory. Suppose a particular periodic trajectory of slope $m$ and period $n$ can be decomposed as follows:
 
 \begin{equation}
 \vec{\tau}=\sum_{i=1}^k c_ie_i 
@@ -327,6 +333,8 @@ y=\sum_{i=1}^k c_ie_{yi}\quad and
 \begin{equation}
 m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }
 \end{equation}
+}
+\end{proof}
 
 \paragraph{The numbers $c_i$ have an important interpretation- they represent the number of times we apply $e_i$ in the construction of a particular trajectory. Since $e_i$ is the normal vector of a unique side of the polygonal table in question, and since the unfolded trajectory treats each side of the $nth$ polygon the same as the corresponding opposite side in the $n+1th$ polygon in the tiled representation (similar to the identification process), we say that $c_i$ represents the number of times a trajectory passes through the side with normal vector $e_i$ on the identified table.}
 
@@ -360,7 +368,7 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 \section{The Square torus and identifying sides}
 
-\paragraph{If we identify the opposite sides of a square, we obtain a 3D object called a torus. A square torus in a 2D plane looks exactly like a flat square but has only two distinct sides, A and B, each of which is represented by a set of opposite sides on the flat square (Fig 2.1) A square torus has a genus of 1, and Euler Characteristic value of 0 (calculated as per the formulae given in Ch 1).}
+\paragraph{If we identify the opposite sides of a square, we obtain a 3D object called a torus. A square torus in a 2D plane looks exactly like a flat square but has only two distinct sides, $A$ and $B$, each of which is represented by a set of opposite sides on the flat square (Fig 2.1) A square torus has a genus of 1, and Euler Characteristic value of 0 (calculated as per the formulae given in Ch 1).}
 
 %Fig 2.1
 \begin{figure}[h]
@@ -375,7 +383,7 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 \paragraph{Note: We make a distinction between a square torus and  torus. A square torus is simply a 2D representation of a torus in terms of a square. We may make a parallelogram torus in this way too, for example (Fig 2.2)}
 
-\paragraph{Notice that a square torus has one surface vertex (Fig 2.3). Also, the angle around the vertex is $4\frac{\pi}{2} = 2\pi$, making the vertex indistinguishable from any other point on the surface (i.e, a flat surface).}
+\paragraph{Notice that a square torus has one surface vertex (Fig 2.3). Also, the angle around the vertex is $4\cdot\frac{\pi}{2} = 2\pi$, making the vertex indistinguishable from any other point on the surface (i.e, a flat surface).}
 
 
 %Fig 2.2
@@ -399,7 +407,7 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 \end{figure}
 
 
-\paragraph{Trajectories on a square torus can be described, like any other identified polygon, in terms of cutting sequences. For a square torus, since we have only two distinct sides A and B, the cutting sequences are bi-infinite permutations of A’s and B’s (Fig 2.4). For periodic trajectories, note that the cutting sequence will be a finite permutation repeated infinitely.}
+\paragraph{Trajectories on a square torus can be described, like any other identified polygon, in terms of cutting sequences. For a square torus, since we have only two distinct sides $A$ and $B$, the cutting sequences are bi-infinite permutations of $A$’s and $B$’s (Fig 2.4). For periodic trajectories, note that the cutting sequence will be a finite permutation repeated infinitely.}
 
 
 
@@ -413,18 +421,22 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 \pagebreak
 
-\paragraph{where $c_{2}$ and $c_{1}$ are the number of times the trajectory passes through the horizontal and vertical sides respectively on the identified square.\\ Since we have labelled the horizontal identified side as A, and the vertical identified side as B, we can state the following:}
+\paragraph{where $c_{2}$ and $c_{1}$ are the number of times the trajectory passes through the horizontal and vertical sides respectively on the identified square. Since we have labelled the horizontal identified side as $A$, and the vertical identified side as $B$, we can state the following:}
 
 
-\paragraph{\textit{Theorem}: For a cutting sequence given by a finite number of A’s and B’s (i.e, a periodic trajectory), we can determine the slope of the trajectory by the following relation:}
+\begin{theorem}
+{For a cutting sequence given by a finite number of $A$’s and $B$’s (i.e, a periodic trajectory), we can determine the slope of the trajectory by the following relation:}
 
 \begin{equation}
 {Slope = \frac{\text{\# of A's in the cutting sequence}}{\text{\# of B's in the cutting sequence}} }
 \end{equation}
+\end{theorem}
 
 
 \paragraph{(proof in appendix) 
 (appendix also has a section on drawing trajectories given the cutting sequences, with example exercises and proof of Ex 3.3)}
+
+%bibliography for 3.3
 
 \paragraph{Finding the slope from the cutting sequence seems quite easy, but the reverse is a more involved process. This will be introduced later in the chapter, giving us a complete relationship between slope and cutting sequence of a trajectory.}
 
@@ -510,6 +522,8 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 
 \paragraph{Thus, the continued fraction expansion of $\pi$ is $[3; 7, 15, 1, 292, 1, 1,\cdots]$}
 
+\paragraph{Note the algorithm of the process-}
+
 
 \begin{enumerate}
 
@@ -520,7 +534,7 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 \item  {We carry this procedure out till the process cannot be continued anymore. (for a rational number, this will mean that a proper fraction with numerator = 1 has been obtained.)}
 \end{enumerate}
 
-\paragraph{Note that this algorithm relies on two key steps- subtracting an integer from an improper fraction, and taking the reciprocal of a proper fraction to turn into an improper fraction. We form the final expansion using the integers that we subtract in alternating steps.
+\paragraph{This algorithm relies on two key steps- subtracting an integer from an improper fraction, and taking the reciprocal of a proper fraction to turn into an improper fraction. We form the final expansion using the integers that we subtract in alternating steps.
 \\
 We introduce continued fractions because, as we shall see, there is a powerful relationship between cutting sequences of a trajectory, and the continued fraction expansion of its slope.}
 
@@ -531,7 +545,7 @@ We introduce continued fractions because, as we shall see, there is a powerful r
 We start by asking an important question regarding cutting sequences- which of them are valid? How can we be sure that a given permutation of $A$’s and $B$’s corresponds to a valid cutting sequence on the square torus? The following theorem will help us in figuring out which sequences are not valid.}
 
 \begin{theorem}
-$A$ cutting sequence featuring two consecutive $A$’s somewhere and also two consecutive $B$’s somewhere, is an invalid cutting sequence.
+A cutting sequence featuring two consecutive $A$’s somewhere and also two consecutive $B$’s somewhere, is an invalid cutting sequence.
 \end{theorem}
 
 \begin{proof}
@@ -561,7 +575,7 @@ A cutting sequence featuring both blocks of multiple A’s separated by single B
 
 \begin{enumerate}
 \item  {\emph{Reflection:} If \textit{T} is the reflection transformation along horizontal or vertical lines of symmetry, we observe $c(\tau)$ and $c(\tau^{'})$ remain the same. If \textit{T} is reflection along a diagonal line of symmetry, $c(\tau^{'})$ is $c(\tau)$ with A’s replaced with B’s and B’s replaced with A’s.}
-\item  {\emph{Rotation:}If \textit{T} is a rotation by an odd multiple of $\sfrac{\pi}{2}$, we observe $c(\tau)$ is $c(\tau^{'})$ with A’s replaced with B’s and B’s replaced with A’s. The cutting sequence remains unchanged (i.e. $c(\tau^{'})$ is $c(\tau)$) when \textit{T} is a rotation is made by an even integral multiple of $\sfrac{\pi}{2}$}
+\item  {\emph{Rotation:}If \textit{T} is a rotation by an odd multiple of $\frac{\pi}{2}$, we observe $c(\tau)$ is $c(\tau^{'})$ with A’s replaced with B’s and B’s replaced with A’s. The cutting sequence remains unchanged (i.e. $c(\tau^{'})$ is $c(\tau)$) when \textit{T} is a rotation is made by an even integral multiple of $\frac{\pi}{2}$}
 \item  {\emph{Shearing:}This one is not nearly as simple. We will consider a specific shear map as an example. \\
 Let $M = \begin{bmatrix} 1&0\\-1&1 \end{bmatrix}$ This is a map that shears the square torus vertically downwards (Fig 2.10) }
 \end{enumerate}
@@ -633,7 +647,8 @@ Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gi
 
 \paragraph{The following theorem illustrates how we approach the process of obtaining a cutting sequence from the slope.}
 
-\paragraph{\textit{THEOREM- Suppose a periodic trajectory $\tau$ on the square torus has a slope $m=\frac{p}{q}$. Let $[c_1, c_2,..., c_n]$ be the continued fraction expansion of $m$. Then, starting from the horizontal trajectory (given by the cutting sequence $\bar{B}$), we can use the continued fraction expansion of $m$ to obtain the exact cutting sequence of $\tau$ as follows:}}
+\begin{theorem}
+{Suppose a periodic trajectory $\tau$ on the square torus has a slope $m=\frac{p}{q}$. Let $[c_1, c_2,..., c_n]$ be the continued fraction expansion of $m$. Then, starting from the horizontal trajectory (given by the cutting sequence $\overline{B}$), we can use the continued fraction expansion of $m$ to obtain the exact cutting sequence of $\tau$ as follows:
 
 \begin{enumerate}
 \item  { \textit{Start with a string of B’s.}}
@@ -645,11 +660,14 @@ Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gi
 \item  { \textit{Repeat out steps $2$ and $3$ for $c_{n-1}$,... till $c_1$}}
 \end{enumerate}
 
-\paragraph{\textit{The resultant cutting sequence is the one corresponding to $\tau$ , i.e, c($\tau$)}}
+\paragraph{\textit{The resultant cutting sequence is the one corresponding to $\tau$ , i.e, c($\tau$)}}}
+\end{theorem}
 
-\paragraph{\textit{Proof:}We chose $p+q$ $B$’s because we already know that is the period of the trajectory. We already know that the exact way in which we apply $S$ and $F$ tells us how the cutting sequence changes at each step (refer section on symmetries). Thus, we assume that $c(\tau)$ exists, and that a particular series of $S$ and $F$ transformations is applied to $\tau$ according to the $S/F$ algorithm. All we need to do then, is travel back along the series (essentially, undo the series, starting from the final $B$ sequence). We will arrive at $c(\tau)$.}
+\begin{proof}
+{We chose $p+q$ $B$’s because we already know that is the period of the trajectory (Section 1.6). We already know that the exact way in which we apply $S$ and $F$ tells us how the cutting sequence changes at each step (refer section on symmetries). Thus, we assume that $c(\tau)$ exists, and that a particular series of $S$ and $F$ transformations is applied to $\tau$ according to the $S/F$ algorithm. All we need to do then, is travel back along the series (essentially, undo the series, starting from the final $B$ sequence). We will arrive at $c(\tau)$.
 
-\paragraph{Since we know how to interpret the steps of the $S/F$ algorithm exactly in terms of the continued fraction expansion of $m$, we can simply carry out the undoing process in terms of the expansion. Since $c_i$ in the expansion corresponds to applying $S$ $c_i$ times (which in turn means we remove $c_i$ $A$’s from each consecutive set of $A$’s), in the undoing process we just add $c_i$ $A$’s between every consecutive pair of $B$’s to the sequence. Going from $c_i$ to $c_{i+1}$ corresponds to applying $F$ (which in turn means we swap the $A$’s and $B$’s), so in the undoing process we simply swap the $A$’s and $B$’s in moving from  $c_i$ to $c_{i+1}$.}
+\paragraph{Since we know how to interpret the steps of the $S/F$ algorithm exactly in terms of the continued fraction expansion of $m$, we can simply carry out the undoing process in terms of the expansion. Since $c_i$ in the expansion corresponds to applying $S$ $c_i$ times (which in turn means we remove $c_i$ $A$’s from each consecutive set of $A$’s), in the undoing process we just add $c_i$ $A$’s between every consecutive pair of $B$’s to the sequence. Going from $c_i$ to $c_{i+1}$ corresponds to applying $F$ (which in turn means we swap the $A$’s and $B$’s), so in the undoing process we simply swap the $A$’s and $B$’s in moving from  $c_i$ to $c_{i+1}$.}}
+\end{proof}
 
 \paragraph{We illustrate this method using the following example:}
 
@@ -707,7 +725,7 @@ Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gi
 
 
 
-\paragraph{\textit{DEFINITION}: A surface is called flat if it looks like the flat plane everywhere, except possibly at finitely many cone points (vertices), where the vertex angle is a multiple of $2\pi$.}
+\paragraph{\textbf{Definition.} A surface is called flat if it looks like the flat plane everywhere, except possibly at finitely many cone points (vertices), where the vertex angle is a multiple of $2\pi$.}
 
 \paragraph{Test 1 is an observation. We can mentally or physically see if kept on a plane surface, do we see a plane surface or a surface with ups and downs.}
 
@@ -736,10 +754,14 @@ Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gi
 
 \paragraph{We state and prove a theorem regarding the number of vertices of a surface made by identifying a regular 2n-gon (a polygon with 2 sides)}
 
-\paragraph{\textit{THEOREM}- If $S_G$ is a surface made by identifying the oppositely oriented edges of a $2n$-gon $G$, then 
-$S_G$ has 2 vertices if $n$ is odd, and 1 vertex if $n$ is even}
 
-\paragraph{\textit{Proof}:We take a $2n$-gon $G$, and identify it into a surface $S_G$. Let $G$ have vertices $V_1$, $V_2$,....$V_2n$}
+\begin{theorem}
+{\paragraph{If $S_G$ is a surface made by identifying the oppositely oriented edges of a $2n$-gon $G$, then 
+$S_G$ has 2 vertices if $n$ is odd, and 1 vertex if $n$ is even}}
+\end{theorem}
+
+\begin{proof}
+{\paragraph{We take a $2n$-gon $G$, and identify it into a surface $S_G$. Let $G$ have vertices $V_1$, $V_2$,....$V_2n$}
 
 \paragraph{Consider the vertex identification process in section 1.3}
 
@@ -749,7 +771,8 @@ $S_G$ has 2 vertices if $n$ is odd, and 1 vertex if $n$ is even}
 
 \paragraph{If $n$ is even, then $V_k$ has an even index ($k$ = even). This means that $V_1$ (an odd indexed vertex) and $V_k$ (an even indexed vertex) are identified. From statement (1) then, this means that all vertices are identified into 1 surface vertex in $S_G$.}
 
-\paragraph{If $n$ is odd, then $V_k$ has an odd index ($k$ = odd). Since $V_1$ and $V_k$ are identified, the iteration of the identification process starting from $V_1$ will only include odd indexed vertices (since both $V_1$ and $V_k$ are odd indexed). Thus, we will need another iteration to identify all the even indexed vertices together, which means that we will have two surface vertices in $S_G$ in total.}
+\paragraph{If $n$ is odd, then $V_k$ has an odd index ($k$ = odd). Since $V_1$ and $V_k$ are identified, the iteration of the identification process starting from $V_1$ will only include odd indexed vertices (since both $V_1$ and $V_k$ are odd indexed). Thus, we will need another iteration to identify all the even indexed vertices together, which means that we will have two surface vertices in $S_G$ in total.}}
+\end{proof}
 
 
 
@@ -801,7 +824,8 @@ by unit length.
 
 \paragraph{We will now show that a general integer shear along the positive $y$ axis can be built using the unit shear in the same direction.}
 
-\paragraph{\textit{THEOREM}- The general vertical shear map
+\begin{theorem}
+{\paragraph{The general vertical shear map
 $\begin{bmatrix}
 1&0\\n&1
 \end{bmatrix}$
@@ -809,10 +833,13 @@ can be written as
 $\begin{bmatrix}
 1&0\\1&1
 \end{bmatrix}^n$,
-where m is a positive integer
-}
+where n is an integer.
+}}
+\end{theorem}
 
-\paragraph{\textit{Proof}- We will prove this by induction. Note that}
+
+\begin{proof}
+{\paragraph{We will prove this by induction. Note that}
 
 \begin{equation}
 \begin{bmatrix}
@@ -885,7 +912,8 @@ In that case, if n is a positive integer}
 \end{bmatrix}
 \end{equation}
 
-\paragraph{Thus, the theorem holds for negative integer values of $n$ too.}
+\paragraph{Thus, the theorem holds for negative integer values of $n$ too.}}
+\end{proof}
 
 \paragraph{A similar argument shows that
 $\begin{bmatrix}
