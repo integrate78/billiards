@@ -1,5 +1,8 @@
 \documentclass{report}
+
 \title{Billiards}
+\author{Dhruv Joshi \and Saumya Pathak}
+
 \usepackage{graphicx}
 \usepackage{xfrac}
 \usepackage{blindtext}
@@ -96,7 +99,15 @@
 \mathit{\chi(S)=V-E+F}
 \end{equation}
 
-\paragraph{In topology, the genus (the number of “holes” in a surface) of the surface plays an important role. From classification of the surfaces to developing homeomorphism between two surfaces, we need to know the genus of the surface.}
+\paragraph{In topology, the genus (the number of “holes” in a surface) of the surface plays an important role. From classification of the surfaces to developing homeomorphism between two surfaces, we need to know the genus of the surface.\\}
+
+%Fig Euca
+\begin{center}
+\begin{figure}[h]
+\includegraphics[scale=0.25]{euca}
+\caption{Euler charateristic for an octagon is $-2$}
+\end{figure}
+\end{center}
 
 \paragraph{The following theorem is an explicit relationship between Euler characteristic and the genus of an orientable surface (any surface with a well defined orientation):}
 
@@ -284,7 +295,7 @@ $ (\begin{bmatrix}
 
 \paragraph{We can create a reconstruction of this trajectory by first creating an ordered sequence of all the polygons that the trajectory passes through, and then joining the centers of the adjacent polygons in the sequence (An illustration of this is shown in (Fig 1.11)). \pagebreak This is a vector decomposition of the trajectory, where each of the constituent vectors are of equal length, and their directions correspond to the normal to each of the sides of the polygon in question. This set of vectors for each polygon can thus be used to construct a center to center trajectory. Call this set $E$.}
 
-\paragraph{We can generalize this by noting that a center to center trajectory can be translated in such a way that it connects any two corresponding points of the $1$st and $n$th polygon, with the same vector decomposition as before (since all vectors stay constant under a translation), as well as the same slope (Fig 1.12). Since we have already seen that the general periodic trajectory always connects corresponding points of two polygons in the tiled representation, we can see that the vectors used to construct a center to center trajectory of slope $m$ can be used to construct any periodic trajectory of slope $m$ (i.e, a trajectory of slope $m$ with any starting point, or simply, the general trajectory of slope $m$).}
+\paragraph{We can generalize this by noting that a center to center trajectory can be translated in such a way that it connects any two corresponding points of the $1$st and $n^{th}$ polygon, with the same vector decomposition as before (since all vectors stay constant under a translation), as well as the same slope (Fig 1.12). Since we have already seen that the general periodic trajectory always connects corresponding points of two polygons in the tiled representation, we can see that the vectors used to construct a center to center trajectory of slope $m$ can be used to construct any periodic trajectory of slope $m$ (i.e, a trajectory of slope $m$ with any starting point, or simply, the general trajectory of slope $m$).}
 
 
 
@@ -485,12 +496,12 @@ m=\frac{\sum_{i=1}^k  c_ie_{yi} }{\sum_{i=1}^k  c_ie_{xi} }=\frac{(c_1)(0)+(c_2)
 \end{figure}
 
  %Fig 2.7
-\begin{figure} 
-\begin{center}
-\includegraphics[scale=0.3]{2.7}
-\caption{(a) Trajectory of slope 7/10 (b) The result of a $\pi/4$ clockwise rotation (c) The result of a $\pi/4$ anti-clockwise rotation}
-\end{center}
-\end{figure}
+%\begin{figure} 
+%\begin{center}
+%\includegraphics[scale=0.3]{2.7}
+%\caption{(a) Trajectory of slope 7/10 (b) The result of a $\pi/4$ clockwise rotation (c) The result of a $\pi/4$ anti-clockwise rotation}
+%\end{center}
+%\end{figure}
 
 
 %Fig 2.8
@@ -934,7 +945,7 @@ for all integer $m$, giving us a general formula for all integer shears along th
 \paragraph{The basic rule we will exploit throughout the process is}
 
 \begin{displaymath}
-slope=\frac{\# of As}{\# of Bs}
+slope=\frac{\text{\# of A's}}{\text{\# of B's}}
 \end{displaymath}
 
 \paragraph{The above relation implies: The trajectory of slope $p/q$ intersects edge A $p$ times and edge B q times.}
