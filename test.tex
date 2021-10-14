@@ -18,10 +18,19 @@
 \maketitle
 \titleformat{\paragraph}
 {\normalfont}{}{}{}
+
+\newpage
+\chapter*{Preface}
+\paragraph{This report is based on a reading course conducted during ()  under the supervision of Prof. Sanjay Pant, Department of Mathematics, University of Delhi. The course was based on a study of Chapter 1 by Diana Davis, from Dynamics Done with Your Bare Hands (European Mathematical Society, 2016). We declare that, to the best of our knowledge, the content presented in the report are original and non-plagiarised.}
+
+\newpage
+\chapter*{Acknowledgment}
+\paragraph{We would like to thank our academic advisor, Prof. Sanjay Kumar Pant, for his unwavering support in introducing, and guiding us through, the subject matter of this reading course. We would also like to give special thanks to Dr Kushal Lalwani, for his insights and input on the manuscript of the report. }
+
 \newpage
 \tableofcontents
 
-\chapter{Billiard tables and their geometry}
+\chapter{Introduction to Billiard Dynamics}
 
 
 \section{The rules of billiard dynamics}
@@ -102,13 +111,12 @@
 \paragraph{In topology, the genus (the number of “holes” in a surface) of the surface plays an important role. From classification of the surfaces to developing homeomorphism between two surfaces, we need to know the genus of the surface.\\}
 
 %Fig Euca
-\begin{figure}[h]
 \begin{center}
+\begin{figure}[h]
 \includegraphics[scale=0.25]{euca}
-\caption{A surface made by identifying sides of an octagon has 1 face, 4 sides, and 1 vertex. Its Euler characteristic is $-2$}
-\end{center}
+\caption{Euler charateristic for an octagon is $-2$}
 \end{figure}
-
+\end{center}
 
 \paragraph{The following theorem is an explicit relationship between Euler characteristic and the genus of an orientable surface (any surface with a well defined orientation):}
 
@@ -244,18 +252,15 @@ $ (\begin{bmatrix}
 
 \paragraph{Note that shearing preserves properties like parallelism and area. It also preserves the side identifications of the polygon (since parallel sides remain parallel to each other after shearing). Thus, shearing a polygon does not change the 3D surface it is identified into.}
 
-\paragraph{We will usually cut the sheared polygon and reattach it elsewhere (while respecting side identifications) to retrieve the original polygon shape for ease of analysis.}
+\paragraph{We will usually cut the sheared polygon and rearrange the individual pieces (while respecting side identifications) to retrieve the original polygon shape for ease of analysis.}
 
-\paragraph{Shearing can be observed in both 2D and 3D spaces. For studying billiards, we will restrict ourselves to 2D shearing maps.\\}
+\paragraph{Shearing can be observed in both 2D and 3D spaces. For studying billiards, we will restrict ourselves to 2D shearing maps.}
 
-\paragraph{Note- Shears are not symmetries of the 2D billiard tables. Strictly speaking, they are, along with the other mentioned maps, automorphisms of the 3D surface they form. However, all our applications of these maps will be retrained to 2D representations of these surfaces, and one may always manipulate these 2D representations to fit with the idea of symmetries of the underlying 2D polygon.  }
 
 
 \section{Periodicity of trajectories}
 
 \paragraph{Identifying sides of a polygon to create a surface in 3D gives us (as we have discussed) a way to represent a trajectory on the polygon in terms of a continuous line, with a single well defined slope in the flat plane. There is another (and essentially similar) way of representing this trajectory, as follows:}
-
-\pagebreak
 
 %Fig 1.9
 \begin{figure} 
@@ -265,12 +270,15 @@ $ (\begin{bmatrix}
 \end{center}
 \end{figure}
 
-\paragraph{We assume the projectile on the table starts off in a particular direction (say, angle $\theta$ and slope $m = tan\theta$). When it hits a particular side, we simply create a mirror reflection of the polygon about that side (“unfold” the table in the direction of that side), and let the projectile continue on its path in the same direction. Every time it hits a side, we unfold the polygon along that side (Fig 1.9).}
+\paragraph{We assume the projectile on the table starts off in a particular direction (say, angle $\theta$ and slope $m = tan\theta$). When it hits a particular side, we simply create a mirror reflection of the polygon about that side (“unfold” the table in the direction of that side), and let the projectile continue on its path in the same direction. Every time it hits a side, we unfold the polygon along that side (Fig 1.9).\\ \\ \\ \\ \\}
 
-
+\pagebreak
 
 \paragraph{The result is that we get a tiled representation of the flat plane (a graph, of sorts) on which the trajectory is a straight line of slope $m$. We call this the unfolded trajectory.}
 
+
+
+\paragraph{We introduce this method because it enables us to easily determine which trajectories in a polygonal table are periodic, and which are not.}
 
 %Fig 1.10
 \begin{figure} 
@@ -279,10 +287,6 @@ $ (\begin{bmatrix}
 \caption{Periodic trajectory (unfolded) on a hexagon}
 \end{center}
 \end{figure}
-
-\pagebreak
-
-\paragraph{We introduce this method because it enables us to easily determine which trajectories in a polygonal table are periodic, and which are not.}
 
 \paragraph{If a trajectory of slope $m$ would be periodic on a particular polygon table, then it means that on the unfolded trajectory, it will pass through the same point on a different polygon as it started from in the first polygon (i.e, it joins corresponding points on two separate polygons on the tiled representation) (Fig 1.10). Conversely, if the trajectory passes through a point on the $n$th polygon that corresponds to the starting position of the first polygon, then the trajectory is periodic. Thus, we know that passing through the same position as the starting position on the $n$th polygon is a sufficient and necessary condition for periodicity. Moreover, the period of the trajectory is $n$.}
 
@@ -574,7 +578,8 @@ Since, a cutting sequence can only represent a single slope, it's not possible t
 \begin{figure}[h] 
 \begin{center}
 \includegraphics[scale=0.3]{2.9}
-\caption{(a) Three examples of trajectory segments that lead to a $BB$ in the cutting sequence. They cut the diagonal at slopes less than $1$ (b) Three examples of trajectory segments that lead to an $AA$ in the cutting sequence. They cut the diagonal at slopes greater than $1$}
+\caption{(a) Trajectory $\overline{BB}$ cutting the diagonal (b) Trajectory $\overline{AA}$ cutting the diagonal
+}
 \end{center}
 \end{figure}
 
