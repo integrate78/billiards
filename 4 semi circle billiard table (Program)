@@ -98,8 +98,8 @@ PyPlot.plot(bill)
 for i=1:lastindex(history1[2])
     l1=[history1[2][i][1],history1[2][i][2]]
     l2=[history2[2][i][1],history2[2][i][2]]
-    PyPlot.scatter(l1[1],l1[2])
-    PyPlot.scatter(l2[1],l2[2])
+    PyPlot.scatter(l1[1],l1[2],color=:blue)
+    PyPlot.scatter(l2[1],l2[2],color=:red)
     if i==1
         continue
     end
