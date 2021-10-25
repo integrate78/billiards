@@ -1,4 +1,4 @@
-using DynamicalBilliards
+using DynamicalBilliards, PyPlot
 
 r=1 #radius of semi-circles
 
@@ -15,14 +15,6 @@ push!(bd,s3)
 push!(bd,s4)
 
 bill=Billiard(bd)
-
-
-
-using Plots
-
-pyplot()
-
-
 
 p1=randominside(bill)
 p2=randominside(bill)
@@ -91,8 +83,10 @@ function evolve!(p::AbstractParticle{T}, bd::Billiard{T}, t, raysplitters = noth
     end
 end
 
-history1=evolve!(p1,bill,20)
-history2=evolve!(p2,bill,20)
+history1=evolve!(p1,bill,5)
+history2=evolve!(p2,bill,5)
+
+
 
 PyPlot.plot(bill)
 for i=1:lastindex(history1[2])
@@ -108,4 +102,4 @@ for i=1:lastindex(history1[2])
     PyPlot.plot((l1[1],l01[1]),(l1[2],l01[2]), color=:blue)
     PyPlot.plot((l2[1],l02[1]),(l2[2],l02[2]), color=:red)
 end
-
+PyPlot.title("Time evolution of two random particles inside given figure")
