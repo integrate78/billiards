@@ -727,6 +727,157 @@ Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gi
 
 
 
+\chapter{Some computational tools for analyzing billiards}
+
+\paragraph{In addition to analytic methods of studying billiard tables, we have also explored some computational methods of simulating billiard dynamics. We have found the Julia language particularly suited to our work, owing to its immensely helpful DynamicalBilliards.jl Package. In this chapter, we will present some simple simulations of an interesting class of billiard tables. }
+
+%Fig- the two billiards 
+
+\section{DynamicalBilliards.jl}
+
+\paragraph{This package enables the user to create billiard tables by defining objects of an $Obstacle$ type, and then combining them in a wrapper to form an object $Billiard$ type. Obstacle type objects can either be made from scratch, or prexisting objects from the Obstacles library can be used.}
+
+\paragraph{The package contains many tools to simulate the dynamics of particles inside billiards, but we will use only the basic ones. We will create an object of the predefined $particle$ type, which comes with position and velocity variables.}
+
+
+\section{Simulating the billiards}
+
+\paragraph{We start by simulating Fig 4 semi circle. To create the billiard in the figure, we start by defining 4 $Obstacle$ objects to simulate semi-circles. DynamicalBilliards.jl has a predefined semi-circle $Obstacle$ subtype, with variables for specifying the radius, center coordinates, and the direction vector in which the semi circle opens. Creating a tuple of these obstacles, we redefine it as a $Billiard$ object to give us our "billiard table"  }
+
+\begin{lstlisting}
+using DynamicalBilliards
+
+#radius of semi-circles
+r=1 
+
+#Defining the tuple of obstacles
+bd=Obstacle{Float64}[]
+
+#Defining the semi circles
+s1=Semicircle([-1,0],r,[2,0])
+s2=Semicircle([0,1],r,[0,-2])
+s3=Semicircle([1,0],r,[-2,0])
+s4=Semicircle([0,-1],r,[0,2])
+
+push!(bd,s1)
+push!(bd,s2)
+push!(bd,s3)
+push!(bd,s4)
+
+#Creating a Billiard type object out of the tuple
+bill=Billiard(bd)
+\end{lstlisting}
+
+\paragraph{We will define 2 particles in this billiard, with their own initial position and velocity vectors. We can do this either by intitializing manually, or by providing the particle objects with random initial conditions using the $randominside$ function.}
+
+\paragraph{Note- The constructor for the particle type takes in the x coordinate, y coordinate, and the angle of the velocity to create the the object}
+
+\begin{lstlisting}
+p1=Particle(0,0,(3/5)pi)
+p2=randominside(bill)
+\end{lstlisting}
+
+\paragraph{To simulate the dynamics, we can use the predefined $evolve!$ function, which takes in the particle object, the billiard object, and the duration of the dynamics (in integer time) as arguments, and returns a list of all the positions and velocities throughout the duration specified}
+
+\begin{lstlisting}
+history1=evolve!(p1,bill,20)
+history2=evolve!(p2,bill,20)
+\end{lstlisting}
+
+
+\paragraph{However, this function does not have any provisions for ending he simulation in the event of the particle colliding with any vertex points. Thus, for our program, we have created a manual definition of $evolve$, almost identical to the predefined definition, but with an added section to break out of the function in case the particle has a position that coincides with the vertex points of the billiard, and then define the history variables. We have acquired the code defining the evolve function from the source code at (citation)}
+
+\begin{lstlisting}
+function evolve!(p::AbstractParticle{T}, bd::Billiard{T}, t,
+raysplitters = nothing; warning = false) where {T<:AbstractFloat}
+
+    if t <= 0
+        throw(ArgumentError("`evolve!()` cannot evolve backwards in time."))
+    end
+    if ispinned(p, bd)
+        push!(rpos, p.pos)
+        push!(rvel, p.vel)
+        push!(rt, Inf)
+        return (rt, rpos, rvel, p.ω)
+    end
+
+    ismagnetic = p isa MagneticParticle
+    isray = !isa(raysplitters, Nothing)
+    isray && acceptable_raysplitter(raysplitters, bd)
+    raysidx = raysplit_indices(bd, raysplitters)
+    ismagnetic && isray && (omegas = [p.ω])
+
+    rt = T[0.0]; rpos = [p.pos]; rvel = [p.vel]
+    count = zero(t)
+    flight = zero(T)
+    if typeof(t) == Int
+        for zzz in (rt, rpos, rvel)
+            sizehint!(zzz, t)
+        end
+    end
+
+    while count < t
+
+        i, tmin, pos, vel = bounce!(p, bd, raysidx, raysplitters)
+        flight += tmin
+
+        if isperiodic(i, bd)
+            continue
+        else
+            push!(rpos, pos + p.current_cell)
+            push!(rvel, vel)
+            push!(rt, flight)
+            ismagnetic && isray && push!(omegas, p.ω)
+            # set counter
+            count += increment_counter(t, flight)
+            flight = zero(T)
+        end
+        
+        #modified section for incorporating vertex conditions
+        # of (Fig 4 semicircle)
+        if pos==(-r,r)||pos==(r,r)||pos==(r,-r)||pos==(-r,-r)
+            break;
+        end
+    end  #time, or collision number, loop
+
+    # Return stuff
+    if ismagnetic && isray
+        return (rt, rpos, rvel, omegas)
+    elseif ismagnetic
+        return (rt, rpos, rvel, p.ω)
+    else
+        return (rt, rpos, rvel)
+    end
+end
+\end{lstlisting}
+
+
+\paragraph{The data in the history function can be used to create a plot of the trajectory of the particles $p1$ and $p2$}
+
+\begin{lstlisting}
+using PyPlot;
+PyPlot.plot(bill)
+for i=1:lastindex(history1[2])
+    l1=[history1[2][i][1],history1[2][i][2]]
+    l2=[history2[2][i][1],history2[2][i][2]]
+    PyPlot.scatter(l1[1],l1[2])
+    PyPlot.scatter(l2[1],l2[2])
+    if i==1
+        continue
+    end
+    l01=history1[2][i-1][1],history1[2][i-1][2]
+    l02=history2[2][i-1][1],history2[2][i-1][2]
+    PyPlot.plot((l1[1],l01[1]),(l1[2],l01[2]), color=:blue)
+    PyPlot.plot((l2[1],l02[1]),(l2[2],l02[2]), color=:red)
+end
+\end{lstlisting}
+
+%Fig showing the output 
+
+\paragraph{We provide the code for fig 6 semicircles as well. The algorithm and logic behind this is the same as that of the previous example.}
+
+
+
 \appendix
 
 \chapter{Properties regarding vertices on a surface}
