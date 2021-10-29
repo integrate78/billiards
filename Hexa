@@ -1,12 +1,12 @@
-using DynamicalBilliards, PyPlot
-
-bd=Obstacle{Float64}[]
+using DynamicalBilliards
 
 r = 1
 a = r*cos(0)
 b = r*cos(pi/6)
 c = r*cos(pi/3)
 d = r*cos(pi/2)
+
+bd=Obstacle{Float64}[]
 
 s2=Semicircle([0,2*b],r,[0,-1])
 s4=Semicircle([0,-2*b],r,[0,1])
@@ -28,10 +28,7 @@ p1=randominside(bill)
 p2=randominside(bill)
 
 import DynamicalBilliards: increment_counter
-
 import DynamicalBilliards: isperiodic
-
-import DynamicalBilliards: evolve!
 
 function evolve!(p::AbstractParticle{T}, bd::Billiard{T}, t, raysplitters = nothing;
     warning = false) where {T<:AbstractFloat}
@@ -77,7 +74,7 @@ function evolve!(p::AbstractParticle{T}, bd::Billiard{T}, t, raysplitters = noth
             count += increment_counter(t, flight)
             flight = zero(T)
         end
-        
+
         if pos==(-c,b)||pos==(c,b)||pos==(c,-b)||pos==(-c,-b)||pos==(-a,d)||pos==(a,d)
             break;
         end
@@ -93,8 +90,10 @@ function evolve!(p::AbstractParticle{T}, bd::Billiard{T}, t, raysplitters = noth
     end
 end
 
-history1=evolve!(p1,bill,5)
-history2=evolve!(p2,bill,5)
+history1=evolve!(p1,bill,10)
+history2=evolve!(p2,bill,10)
+
+using Plots
 
 PyPlot.plot(bill)
 for i=1:lastindex(history1[2])
