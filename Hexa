@@ -27,6 +27,72 @@ bill=Billiard(bd)
 p1=randominside(bill)
 p2=randominside(bill)
 
+import DynamicalBilliards: increment_counter
+
+import DynamicalBilliards: isperiodic
+
+import DynamicalBilliards: evolve!
+
+function evolve!(p::AbstractParticle{T}, bd::Billiard{T}, t, raysplitters = nothing;
+    warning = false) where {T<:AbstractFloat}
+
+    if t ≤ 0
+        throw(ArgumentError("`evolve!()` cannot evolve backwards in time."))
+    end
+    if ispinned(p, bd)
+        push!(rpos, p.pos)
+        push!(rvel, p.vel)
+        push!(rt, Inf)
+        return (rt, rpos, rvel, p.ω)
+    end
+
+    ismagnetic = p isa MagneticParticle
+    isray = !isa(raysplitters, Nothing)
+    isray && acceptable_raysplitter(raysplitters, bd)
+    raysidx = raysplit_indices(bd, raysplitters)
+    ismagnetic && isray && (omegas = [p.ω])
+
+    rt = T[0.0]; rpos = [p.pos]; rvel = [p.vel]
+    count = zero(t)
+    flight = zero(T)
+    if typeof(t) == Int
+        for zzz in (rt, rpos, rvel)
+            sizehint!(zzz, t)
+        end
+    end
+
+    while count < t
+
+        i, tmin, pos, vel = bounce!(p, bd, raysidx, raysplitters)
+        flight += tmin
+
+        if isperiodic(i, bd)
+            continue
+        else
+            push!(rpos, pos + p.current_cell)
+            push!(rvel, vel)
+            push!(rt, flight)
+            ismagnetic && isray && push!(omegas, p.ω)
+            # set counter
+            count += increment_counter(t, flight)
+            flight = zero(T)
+        end
+        
+        if pos==(-c,b)||pos==(c,b)||pos==(c,-b)||pos==(-c,-b)||pos==(-a,d)||pos==(a,d)
+            break;
+        end
+    end  #time, or collision number, loop
+
+    # Return stuff
+    if ismagnetic && isray
+        return (rt, rpos, rvel, omegas)
+    elseif ismagnetic
+        return (rt, rpos, rvel, p.ω)
+    else
+        return (rt, rpos, rvel)
+    end
+end
+
 history1=evolve!(p1,bill,5)
 history2=evolve!(p2,bill,5)
 
