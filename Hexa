@@ -1,26 +1,24 @@
 using DynamicalBilliards, PyPlot
 
-
-
 bd=Obstacle{Float64}[]
 
+r = 1
+a = r*cos(0)
+b = r*cos(pi/6)
+c = r*cos(pi/3)
+d = r*cos(pi/2)
 
-s2=Semicircle([0,3.5],2,[0,-2])
-
-s4=Semicircle([0,-3.5],2,[0,2])
-s6=Semicircle([-3,-1.75],2,[3.5,2])
-s8=Semicircle([-3,1.75],2,[3.5,-2])
-s9=Semicircle([3,-1.75],2,[-3.5,2])
-s0=Semicircle([3,1.75],2,[-3.5,-2])
+s2=Semicircle([0,2*b],r,[0,-2])
+s4=Semicircle([0,-2*b],r,[0,2])
+s6=Semicircle([-(a+c),-(d+b)],r,[3.5,2])
+s8=Semicircle([-(a+c),(d+b)],r,[3.5,-2])
+s9=Semicircle([(a+c),-(d+b)],r,[-3.5,2])
+s0=Semicircle([(a+c),(d+b)],r,[-3.5,-2])
 
 push!(bd,s2)
-
-
 push!(bd,s4)
-
 push!(bd,s6)
 push!(bd,s8)
-
 push!(bd,s9)
 push!(bd,s0)
 
@@ -31,8 +29,6 @@ p2=randominside(bill)
 
 history1=evolve!(p1,bill,5)
 history2=evolve!(p2,bill,5)
-
-
 
 PyPlot.plot(bill)
 for i=1:lastindex(history1[2])
