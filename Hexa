@@ -1,0 +1,51 @@
+using DynamicalBilliards, PyPlot
+
+
+
+bd=Obstacle{Float64}[]
+
+
+s2=Semicircle([0,3.5],2,[0,-2])
+
+s4=Semicircle([0,-3.5],2,[0,2])
+s6=Semicircle([-3,-1.75],2,[3.5,2])
+s8=Semicircle([-3,1.75],2,[3.5,-2])
+s9=Semicircle([3,-1.75],2,[-3.5,2])
+s0=Semicircle([3,1.75],2,[-3.5,-2])
+
+push!(bd,s2)
+
+
+push!(bd,s4)
+
+push!(bd,s6)
+push!(bd,s8)
+
+push!(bd,s9)
+push!(bd,s0)
+
+bill=Billiard(bd)
+
+p1=randominside(bill)
+p2=randominside(bill)
+
+history1=evolve!(p1,bill,5)
+history2=evolve!(p2,bill,5)
+
+
+
+PyPlot.plot(bill)
+for i=1:lastindex(history1[2])
+    l1=[history1[2][i][1],history1[2][i][2]]
+    l2=[history2[2][i][1],history2[2][i][2]]
+    PyPlot.scatter(l1[1],l1[2],color=:blue)
+    PyPlot.scatter(l2[1],l2[2],color=:red)
+    if i==1
+        continue
+    end
+    l01=history1[2][i-1][1],history1[2][i-1][2]
+    l02=history2[2][i-1][1],history2[2][i-1][2]
+    PyPlot.plot((l1[1],l01[1]),(l1[2],l01[2]), color=:blue)
+    PyPlot.plot((l2[1],l02[1]),(l2[2],l02[2]), color=:red)
+end
+PyPlot.title("Time evolution of two random particles inside given figure")
