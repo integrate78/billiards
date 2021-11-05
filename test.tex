@@ -802,14 +802,14 @@ Note the effect of these transformation on $m$: $S$ reduces $m$ by 1, and $F$ gi
 
 \section{DynamicalBilliards.jl}
 
-\paragraph{This package enables the user to create billiard tables by defining objects of an $Obstacle$ type, and then combining them in a wrapper to form an object $Billiard$ type. Obstacle type objects can either be made from scratch, or prexisting objects from the Obstacles library can be used.}
+\paragraph{This package enables the user to create billiard tables by defining objects of an \verb|Obstacle| type, and then combining them in a wrapper to form an object \verb|Billiard| type. Obstacle type objects can either be made from scratch, or prexisting objects from the Obstacles library can be used.}
 
-\paragraph{The package contains many tools to simulate the dynamics of particles inside billiards, but we will use only the basic ones. We will create an object of the predefined $particle$ type, which comes with position and velocity variables.}
+\paragraph{The package contains many tools to simulate the dynamics of particles inside billiards, but we will use only the basic ones. We will create an object of the predefined \verb|particle| type, which comes with position and velocity variables.}
 
 
 \section{Simulating the billiards}
 
-\paragraph{We start by simulating Fig 4 semi circle. To create the billiard in the figure, we start by defining 4 $Obstacle$ objects to simulate semi-circles. DynamicalBilliards.jl has a predefined semi-circle $Obstacle$ subtype, with variables for specifying the radius, center coordinates, and the direction vector in which the semi circle opens. Creating a tuple of these obstacles, we redefine it as a $Billiard$ object to give us our "billiard table"  }
+\paragraph{We start by simulating Fig 4 semi circle. To create the billiard in the figure, we start by defining 4 \verb|Obstacle| objects to simulate semi-circles. DynamicalBilliards.jl has a predefined semi-circle \verb|Obstacle| subtype, with variables for specifying the radius, center coordinates, and the direction vector in which the semi circle opens. Creating a tuple of these obstacles, we redefine it as a $Billiard$ object to give us our "billiard table"  }
 
 \begin{lstlisting}
 using DynamicalBilliards
@@ -835,7 +835,7 @@ push!(bd,s4)
 bill=Billiard(bd)
 \end{lstlisting}
 
-\paragraph{We will define 2 particles in this billiard, with their own initial position and velocity vectors. We can do this either by intitializing manually, or by providing the particle objects with random initial conditions using the $randominside$ function.}
+\paragraph{We will define 2 particles in this billiard, with their own initial position and velocity vectors. We can do this either by intitializing manually, or by providing the particle objects with random initial conditions using the \verb|randominside| function.}
 
 \paragraph{Note- The constructor for the particle type takes in the $x$ coordinate, $y$ coordinate, and the angle of the velocity to create the the object}
 
@@ -844,7 +844,7 @@ p1=Particle(0,0,(3/5)pi)
 p2=randominside(bill)
 \end{lstlisting}
 
-\paragraph{To simulate the dynamics, we can use the predefined $evolve!$ function, which takes in the particle object, the billiard object, and the duration of the dynamics (in integer time) as arguments, and returns a list of all the positions and velocities throughout the duration specified}
+\paragraph{To simulate the dynamics, we can use the predefined \verb|evolve!| function, which takes in the particle object, the billiard object, and the duration of the dynamics (in integer time) as arguments, and returns a list of all the positions and velocities throughout the duration specified}
 
 \begin{lstlisting}
 history1=evolve!(p1,bill,20)
@@ -852,7 +852,7 @@ history2=evolve!(p2,bill,20)
 \end{lstlisting}
 
 
-\paragraph{However, this function does not have any provisions for ending he simulation in the event of the particle colliding with any vertex points. Thus, for our program, we have created a manual definition of $evolve$, almost identical to the predefined definition, but with an added section to break out of the function in case the particle has a position that coincides with the vertex points of the billiard, and then define the history variables. We have acquired the code defining the evolve function from the source code at (citation)}
+\paragraph{However, this function does not have any provisions for ending he simulation in the event of the particle colliding with any vertex points. Thus, for our program, we have created a manual definition of \verb|evolve!|, almost identical to the predefined definition, but with an added section to break out of the function in case the particle has a position that coincides with the vertex points of the billiard, and then define the history variables. We have acquired the code defining the evolve function from the source code at (citation)}
 
 \begin{lstlisting}
 function evolve!(p::AbstractParticle{T}, bd::Billiard{T}, t,
